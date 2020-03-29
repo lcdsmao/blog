@@ -1,4 +1,4 @@
 +++
 paginate_by = 2
-sort-by = date
+sort_by = "date"
 +++
