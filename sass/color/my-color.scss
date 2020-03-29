@@ -1,0 +1,13 @@
+$light-orange: #ffb87c;
+$kt-orange: #ff722c;
+$cyber-yellow: #fcf600;
+
+:root {
+  $accent: $light-orange;
+  --accent: #{$accent};
+  --accent-alpha-70: #{rgba($accent, 0.7)};
+  --accent-alpha-20: #{rgba($accent, 0.2)};
+  --background: #35373b;
+  --color: white;
+  --border-color: rgba(255, 255, 255, 0.1);
+}

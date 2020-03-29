@@ -16,7 +16,7 @@ theme = "terminimal"
 [extra]
 # One of: blue, green, orange, pink, red.
 # Defaults to blue. 
-accent_color = "kt-orange"
+accent_color = "my-color"
 
 # One of: blue, dark, green, orange, pink, red.
 # Enabling dark background will also modify primary font color
