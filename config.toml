@@ -1,6 +1,9 @@
 # The URL the site will be built for
 base_url = "https://lcdsmao.dev"
 
+# The site title and description; used in RSS by default.
+title = "lcdsmao"
+
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = true
 
