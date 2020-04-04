@@ -5,7 +5,7 @@ date = 2019-06-19
 
 ![image](1.png)
 
-### Prerequisites
+## Prerequisites
 
 Add [material design dependency](https://mvnrepository.com/artifact/com.google.android.material/material) in Gradle file:
 
@@ -19,7 +19,7 @@ Make sure your `AppTheme` inherited from a material theme like:
 <style name="AppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
 ```
 
-### Customization
+## Customization
 
 Create a custom alert dialog theme that inherited from `ThemeOverlay.MaterialComponents.MaterialAlertDialog`:
 
@@ -27,7 +27,7 @@ Create a custom alert dialog theme that inherited from `ThemeOverlay.MaterialCom
 <style name="AlertDialogTheme" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog"></style>
 ```
 
-You can then customize the style of the title, body, button, or other elements by overriding the corresponding item in the alert dialog theme.
+Then you can then customize the style of the title, body, button, or other elements by overriding the corresponding item in the alert dialog theme.
 
 For example, customize the text color and font size of the title by creating a `materialAlertDialogTitleTextStyle` that inherited from `MaterialAlertDialog.MaterialComponents.Title.Text`:
 
@@ -41,13 +41,13 @@ For example, customize the text color and font size of the title by creating a `
 </style>
 ```
 
-### Examples
+## Examples
 
-#### Example 1:
+### Example 1:
 
 ![image](2.png)
 
-This is the custom alert dialog theme shown at the beginning of the article which custom the background color, title text, body text, positive and negative button styles:
+Change the background color and define the style for title text, body text, positive and negative button:
 
 ```xml
 <style name="AlertDialogTheme" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog">
@@ -76,7 +76,7 @@ This is the custom alert dialog theme shown at the beginning of the article whic
 </style>
 ```
 
-To apply the custom theme to the dialog you need to use the _MaterialAlertDialogBuilder_ and pass the theme id to it:
+To apply the custom theme to the dialog you need to use the `MaterialAlertDialogBuilder` and pass the theme id to it:
 
 ```kotlin
 MaterialAlertDialogBuilder(context, R.styles.AlertDialogTheme)
@@ -87,7 +87,7 @@ MaterialAlertDialogBuilder(context, R.styles.AlertDialogTheme)
     .create()
 ```
 
-If you want to let every dialog use the same theme, then define it in your `AppTheme`:
+If you want to let every dialog use the same theme, then override the `materialAlertDialogTheme` attribute it in your `AppTheme`:
 
 ```xml
 <style name="AppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
@@ -95,13 +95,14 @@ If you want to let every dialog use the same theme, then define it in your `AppT
 </style>
 ```
 
-After that you can initialize the builder without explicitly provide a theme:
+Now the `context` will provide custom dialog theme instead of the default one.
+You can initialize the dialog builder without the theme parameter:
 
 ```kotlin
 MaterialAlertDialogBuilder(context).setTitle()...
 ```
 
-#### Example 2:
+## Example 2:
 
 ![image](3.png)
 
@@ -140,7 +141,7 @@ Let the title and icon center and set different colors to title pane and button 
 </style>
 ```
 
-### Conclusion
+## Conclusion
 
 MaterialAlertDialog provides a beautiful base style and you can easily customize the style with writing some XML.
 

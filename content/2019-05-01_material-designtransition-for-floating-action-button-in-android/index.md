@@ -1,20 +1,31 @@
 +++
 title = "Material Design — Transition for Floating Action Button in Android"
 date = 2019-05-01
+
+[extra]
+modified_date = 2020-03-31
 +++
 
-Material.io shows some [transition animations](https://material.io/design/components/buttons-floating-action-button.html#types-of-transitions) for the floating action button but doesn’t reveal how to implement them in Android. However, _com.google.android.material:material_ actually already provided some components to achieve these animations. In this article, I will introduce how to implement these two transformations:
+In this post I will show you how to implement two types [transition animations](https://material.io/design/components/buttons-floating-action-button.html#types-of-transitions) for the floating action button (FAB):
 
 - Speed dial
 - Morph
 
-### Speed dial
+Both animations are implemented via the `CoordinatorLayout.Behavior` so `CoordinatorLayout` is required to be used.
+
+## Speed dial
 
 > When pressed, a FAB can display three to six related actions in the form of a **speed dial**.
 
-![image](1.gif)
+![spped dial](1.gif)
 
-Here is the sample code:
+### Usage
+
+Create a `CoordinatorLayout` that contains a dial view and a FAB.
+The show/hide animation of the the dial view is done through the `com.google.android.material.transformation.FabTransformationScrimBehavior` behavior class.
+To setup the behavior we bind the full class name of the behavior to the dial view with layout xml attribute `app:layout_behavior`.
+
+Here is the sample layout xml:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -41,24 +52,36 @@ Here is the sample code:
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
 ```
 
-- Step 1: Use `CoordinatorLayout` as the root
-- Step 2: Create two child views. The dial view to show related actions (dial) and the `FloatingActionButton` (fab)
-- Step 3: Attached the `com.google.android.material.transformation.FabTransformationScrimBehavior` to dial view’s layout_behavior
-- Step 4: Call `FloatingActionButton#setExpanded(Boolean)` in your activity then the dial view will show or hide automatically, e.g. set an OnClickListener to the fab `fab.setOnClickListener { fab.isExpanded = !fab.isExpanded }`
+Now we can toggle the visibility of the dial view programmatically via `FloatingActionButton.setExpanded(boolean)`:
 
-#### Behind the scene
+```kotlin
+fab.setOnClickListener {
+  fab.isExpanded = !fab.isExpanded
+}
+```
 
-`FloatingActionButton` implemented the `ExpandableWidget` interface thus has two methods `boolean isExpanded()` and `boolean setExpanded(boolean expanded)`. An `ExpandableWidgetHelper` class will be used in ExpandableWidget to call these two methods and dispatch the expanded state to parent `CoordinatorLayout` Then, `FabTransformationScrimBehavior` will respond to the state change through CoordinatorLayout and create the show/hide animators for the child view that is attached to.
+### Behind the scene
 
-### Morph
+The two methods `boolean isExpanded()` and `boolean setExpanded(boolean expanded)` of the `FloatingActionButton` are inherited from the `ExpandableWidget` interface.
+A bridge class `ExpandableWidgetHelper` is used to connect the `ExpandableWidget` and the parent `CoordinatorLayout`.
+When the expanded state of `ExpandableWidget` changes, `ExpandableWidgetHelper` will notify the `CoordinatorLayout` so the `CoordinatorLayout` can dispatch these changes to the `FabTransformationScrimBehavior`.
+Finally, `FabTransformationScrimBehavior` will respond to the state changes and create the show/hide animators for the view it attached to.
+
+## Morph
 
 > The FAB can transform into another surface in an app. Morphing should be reversible and transform the new surface back into the FAB.
 
 ![image](2.gif)
 
-Morph
+### Usage
 
-Here is the sample code:
+Create a `CoordinatorLayout` that contains two child views, a FAB and a target view that the FAB will transform into.
+Similar to the speed dial implementation, a specific behavior class `com.google.android.material.transformation.FabTransformationSheetBehavior` need to be bind to the target view.
+Notice that there is another requirement for the target view that the view must be a **`CircularRevealWidget`**.
+The material design components library already provided some often used layouts that implemented `CircularRevealWidget` for us, like `CircularRevealFrameLayout`.
+If the target view is not a CircularRevealWidget then no morph animation will appear. 
+
+Here is the sample layout xml:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -82,19 +105,20 @@ Here is the sample code:
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
 ```
 
-- Step 1: Use `CoordinatorLayout` as the root
-- Step 2: Create the Floating Action Button (fab) and the new surface view which should be a `CircularRevealWidget` (_Important!!!_), e.g. `CircularRevealLinearLayout`, `CircularRevealFrameLayout` and et al. If we don’t use the CircularRevealWidget we will not get the morph animation
-- Step 3: Attached the `com.google.android.material.transformation.FabTransformationSheetBehavior` to the new surface view’s layout_behavior
-- Step 4: Call `FloatingActionButton#setExpanded(Boolean)` in your activity then morph animation will work
+When `FloatingActionButton.isExpanded() == false` only the FAB will show and vice verse. 
+To transform the FAB into the target view we can call `FloatingActionButton.setExpanded(true)` or transform the FAB back by calling `FloatingActionButton.setExpanded(false)`.
 
-#### Behind the scene
+### Behind the scene
 
-The working flow is similar to the speed dial but `FabTransformationSheetBehavior` and `CircularRevealWidget` (through CircularRevealHelper) will create more complicated morph animations.
-You can find the source code here: [_FabTransformationSheetBehavior_](https://github.com/material-components/material-components-android/blob/master/lib/java/com/google/android/material/transformation/FabTransformationSheetBehavior.java), [_CircularRevealHelper_](https://github.com/material-components/material-components-android/blob/master/lib/java/com/google/android/material/circularreveal/CircularRevealHelper.java).
+The working flow is very similar to the speed dial but a little more complicated.
+If you are interesting in the implementation detail, the related source code can be found here:
 
-### Create your own animation
+- [FabTransformationSheetBehavior](https://github.com/material-components/material-components-android/blob/master/lib/java/com/google/android/material/transformation/FabTransformationSheetBehavior.java)
+- [CircularRevealHelper](https://github.com/material-components/material-components-android/blob/master/lib/java/com/google/android/material/circularreveal/CircularRevealHelper.java).
 
-If we want to create some different animations, we can inherit from one of the transformation behaviors and provide your own animators:
+## Create our own animation
+
+To create our own animation when `FloatingActionButton.setExpanded(boolean)` was called, we need to create custom behavior class that inherit one of these transformation behaviors:
 
 - ExpandableBehavior
 - ExpandableTransformationBehavior
@@ -102,10 +126,14 @@ If we want to create some different animations, we can inherit from one of the t
 - FabTransformationScrimBehavior
 - FabTransformationSheetBehavior
 
-I create a simple behavior that extends `ExpandableTransformationBehavior` that let the speed dial actions view appear sequentially instead of all appears at once ([source code](https://github.com/lcdsmao/ExpandableFABExample/blob/master/app/src/main/java/com/paranoid/mao/expandablewidgetexample/EmitExpandableTransformationBehavior.kt)):
+Then just bind the full class name to views via `app:layout_behavior`.
+
+Here is a custom behavior example that let the speed dial actions views appear sequentially:
 
 ![image](3.gif)
 
+The custom behavior inherited the `ExpandableTransformationBehavior` and here is the [source code](https://github.com/lcdsmao/ExpandableFABExample/blob/master/app/src/main/java/com/paranoid/mao/expandablewidgetexample/EmitExpandableTransformationBehavior.kt).
+
 ### Summary
 
-By using `com.google.android.material:material` we almost only need to write a few XML codes to achieve the fancy transformation animations for the floating action button.
+By using `com.google.android.material:material` we only need to write a few XML codes to achieve the fancy transformation animations for the floating action button.
