@@ -53,7 +53,7 @@ menu_items = [
     
     # tags should only be enabled if you have "tags" taxonomy
     # see documentation below for more details
-    {name = "Blog", url = "$BASE_URL/archive"},
+    {name = "Archive", url = "$BASE_URL/archive"},
     {name = "Tags", url = "$BASE_URL/tags"},
     
     # set newtab to true to make the link open in new tab
