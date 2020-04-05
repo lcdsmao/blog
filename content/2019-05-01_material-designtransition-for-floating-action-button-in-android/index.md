@@ -1,5 +1,5 @@
 +++
-title = "Material Design — Transition for Floating Action Button in Android"
+title = "Material Design - Transition for Floating Action Button in Android"
 date = 2019-05-01
 
 [extra]
@@ -22,8 +22,8 @@ Both animations are implemented via the `CoordinatorLayout.Behavior` so `Coordin
 ### Usage
 
 Create a `CoordinatorLayout` that contains a dial view and a FAB.
-The show/hide animation of the the dial view is done through the `com.google.android.material.transformation.FabTransformationScrimBehavior` behavior class.
-To setup the behavior we bind the full class name of the behavior to the dial view with layout xml attribute `app:layout_behavior`.
+The show/hide animation of the dial view is done through the `com.google.android.material.transformation.FabTransformationScrimBehavior` behavior class.
+To set up the behavior we bind the full class name of the behavior to the dial view with layout xml attribute `app:layout_behavior`.
 
 Here is the sample layout xml:
 
@@ -65,7 +65,7 @@ fab.setOnClickListener {
 The two methods `boolean isExpanded()` and `boolean setExpanded(boolean expanded)` of the `FloatingActionButton` are inherited from the `ExpandableWidget` interface.
 A bridge class `ExpandableWidgetHelper` is used to connect the `ExpandableWidget` and the parent `CoordinatorLayout`.
 When the expanded state of `ExpandableWidget` changes, `ExpandableWidgetHelper` will notify the `CoordinatorLayout` so the `CoordinatorLayout` can dispatch these changes to the `FabTransformationScrimBehavior`.
-Finally, `FabTransformationScrimBehavior` will respond to the state changes and create the show/hide animators for the view it attached to.
+Finally, `FabTransformationScrimBehavior` will respond to the state changes and create the show/hide animators for attached view.
 
 ## Morph
 
@@ -111,7 +111,7 @@ To transform the FAB into the target view we can call `FloatingActionButton.setE
 ### Behind the scene
 
 The working flow is very similar to the speed dial but a little more complicated.
-If you are interesting in the implementation detail, the related source code can be found here:
+If you are interested in the implementation detail, the related source code can be found here:
 
 - [FabTransformationSheetBehavior](https://github.com/material-components/material-components-android/blob/master/lib/java/com/google/android/material/transformation/FabTransformationSheetBehavior.java)
 - [CircularRevealHelper](https://github.com/material-components/material-components-android/blob/master/lib/java/com/google/android/material/circularreveal/CircularRevealHelper.java).
