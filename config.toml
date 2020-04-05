@@ -16,6 +16,11 @@ build_search_index = true
 
 theme = "terminimal"
 
+# Optional: enable tags
+taxonomies = [
+    {name = "tags"}
+]
+
 [extra]
 # One of: blue, green, orange, pink, red.
 # Defaults to blue. 
@@ -48,8 +53,8 @@ menu_items = [
     
     # tags should only be enabled if you have "tags" taxonomy
     # see documentation below for more details
-    # {name = "tags", url = "$BASE_URL/tags"},
     {name = "Blog", url = "$BASE_URL/archive"},
+    {name = "Tags", url = "$BASE_URL/tags"},
     
     # set newtab to true to make the link open in new tab
     {name = "Github", url = "https://github.com/lcdsmao", newtab = true},

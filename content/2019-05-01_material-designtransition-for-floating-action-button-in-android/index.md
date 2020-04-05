@@ -2,6 +2,9 @@
 title = "Material Design - Transition for Floating Action Button in Android"
 date = 2019-05-01
 
+[taxonomies]
+tags = ["android", "material design", "animation"]
+
 [extra]
 modified_date = 2020-03-31
 +++
