@@ -10,11 +10,11 @@ tags = ["android", "espresso", "glide", "test"]
 
 [Glide](https://github.com/bumptech/glide) allows us to load images asynchronously.
 However, the asynchronous loading behavior is not testable which can become a pain.
-In some instrumented test scenarios, if the execution of the test code and the loading task of Glide cannot ensure synchronization, then test result can become uncontrollable.
+In some instrumented test scenarios, if the execution of the test code and the loading task of Glide cannot ensure synchronization, then the test result can become uncontrollable.
 Thankfully, [Espresso](https://developer.android.com/reference/androidx/test/espresso/Espresso) provides [`IdlingResource`](https://developer.android.com/reference/androidx/test/espresso/IdlingResource) to help us executing asynchronous work in test code synchronously which can solve this problem.
 
 In this post, I will show you how to synchronize the image loading task of Glide in test code with minimal impact on the production code.
-Some codes are inspired from this [issue](https://github.com/bumptech/glide/issues/1440).
+Some codes are inspired by this [issue](https://github.com/bumptech/glide/issues/1440).
 
 ## Synchronize with CountingIdlingResource and Target
 
@@ -40,7 +40,7 @@ The most frequently used method `into(ImageView)` will finally wrap the `ImageVi
 When `onLoadStarted` is called it indicates a loading task starts, and the other three callbacks indicate a loading task ends.
 
 Another point to note is that only the callback `onLoadStarted` is guaranteed to be called.
-If the size of `Target` is invalid (e.g. visibility of a ImageView is `gone`) then the other three callbacks will never be called.
+If the size of `Target` is invalid (e.g. visibility of an ImageView is `gone`) then the other three callbacks will never be called.
 To ensure the `CountingIdlingResource` will eventually become idle instead of waiting until timeout,
 we need to decrease the count manually if `Target` size is invalid.
 
@@ -97,7 +97,7 @@ class IdlingResourceTarget(
 }
 ```
 
-If your App use many custom `Target` implementations, you can create `IdlingResourceTarget` with the delegate pattern as described in this [comment](https://github.com/bumptech/glide/issues/1440#issuecomment-576486525).
+If your App uses many custom `Target` implementations, you can create `IdlingResourceTarget` with the delegate pattern as described in this [comment](https://github.com/bumptech/glide/issues/1440#issuecomment-576486525).
 
 Now we can use the `IdlingResourceTarget` like this (actually we can't and will be explained in the next section):
 
@@ -115,7 +115,7 @@ Glide.with(fragment)
 ## Create Different Loading Strategy in Test and Production Flavor
 
 Normally, we only implement the Espresso in the test flavor.
-So using the `IdlingResourceTarget` in the production code is actually impossible.
+So using the `IdlingResourceTarget` in the production code is impossible.
 To solve this problem, let the interface to do the rescue.
 
 First we define a `ImageLoadStrategy` interface:
@@ -179,7 +179,7 @@ Glide.with(fragment)
   .intoViewWithStrategy(imageView)
 ```
 
-With `ImageLoadStrategy` the production code will work like before and has the ability to load image in another strategy in the test.
+With `ImageLoadStrategy` the production code will work like before and can load images in another strategy in the test.
 
 ## Implement the Test ImageLoadStrategy
 
