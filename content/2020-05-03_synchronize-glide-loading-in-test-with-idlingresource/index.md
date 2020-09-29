@@ -1,12 +1,8 @@
-+++
-title = "Synchronize Glide Loading in Test with IdlingResource"
-date = 2020-05-03
-
-[taxonomies]
-tags = ["android", "espresso", "glide", "test"]
-
-[extra]
-+++
+---
+title: "Synchronize Glide Loading in Test with IdlingResource"
+date: "2020"-05-03
+tags: ["android", "espresso", "glide", "test"]
+---
 
 [Glide](https://github.com/bumptech/glide) allows us to load images asynchronously.
 However, the asynchronous loading behavior is not testable which can become a pain.

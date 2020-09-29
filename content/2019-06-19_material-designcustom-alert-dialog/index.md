@@ -1,13 +1,8 @@
-+++
-title = "Material Design — Custom Alert Dialog"
-date = 2019-06-19
-
-[taxonomies]
-tags = ["android", "material design", "theme"]
-
-[extra]
-modified_date = 2020-04-04
-+++
+---
+title: "Material Design — Custom Alert Dialog"
+date: "2019-06-19"
+tags: ["android", "material design", "theme"]
+---
 
 ![image](1.png)
 

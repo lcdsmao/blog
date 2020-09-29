@@ -1,13 +1,8 @@
-+++
-title = "How to install oh-my-zsh in cygwin"
-date = 2018-08-20
-
-[taxonomies]
-tags = ["cygwin", "zsh"]
-
-[extra]
-modified_date = 2020-03-30
-+++
+---
+title: "How to install oh-my-zsh in cygwin"
+date: "2018-08-20"
+tags: ["cygwin", "zsh"]
+---
 
 ![image](1.png)
 

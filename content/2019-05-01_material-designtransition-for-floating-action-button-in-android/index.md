@@ -1,13 +1,8 @@
-+++
-title = "Material Design - Transition for Floating Action Button in Android"
-date = 2019-05-01
-
-[taxonomies]
-tags = ["android", "material design", "animation"]
-
-[extra]
-modified_date = 2020-03-31
-+++
+---
+title: "Material Design - Transition for Floating Action Button in Android"
+date: "2019-05-01"
+tags: ["android", "material design", "animation"]
+---
 
 In this post I will show you how to implement two types [transition animations](https://material.io/design/components/buttons-floating-action-button.html#types-of-transitions) for the floating action button (FAB):
 
