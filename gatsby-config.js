@@ -5,7 +5,15 @@
  */
 
 module.exports = {
-  /* Your site config here */
+  siteMetadata: {
+    title: "lcdsmao",
+    description: "lcdsmao blog",
+    siteUrl: "https://lcdsmao.dev/",
+    social: {
+      twitter: "lcdsmao",
+      github: "lcdsmao",
+    },
+  },
   plugins: [
     {
       resolve: "gatsby-source-filesystem",
