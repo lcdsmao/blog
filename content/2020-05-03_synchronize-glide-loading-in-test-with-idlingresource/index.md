@@ -1,6 +1,6 @@
 ---
 title: "Synchronize Glide Loading in Test with IdlingResource"
-date: "2020"-05-03
+date: "2020-05-03"
 tags: ["android", "espresso", "glide", "test"]
 ---
 
