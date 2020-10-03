@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql, PageProps } from "gatsby"
 import Header from "../components/Header"
+import Container from "../components/Container"
 import { MarkdownRemark, SiteMetadata } from "../types"
 
 type Props = PageProps<{
@@ -18,12 +19,12 @@ const Home: React.FC<Props> = ({ data }) => {
   const metadata = data.site.siteMetadata
 
   return (
-    <div>
+    <Container>
       <Header metadata={metadata}></Header>
       {data.allMarkdownRemark.edges.map(({ node }) => (
         <h3>{node.fileAbsolutePath}</h3>
       ))}
-    </div>
+    </Container>
   )
 }
 
@@ -53,6 +54,7 @@ export const query = graphql`
           }
           fileAbsolutePath
           html
+          excerpt
         }
       }
     }
