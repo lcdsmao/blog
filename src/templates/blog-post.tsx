@@ -3,6 +3,8 @@ import { graphql, PageProps } from "gatsby"
 import { SiteMetadata, MarkdownRemark } from "../types"
 import Container from "../components/Container"
 import Article from "../components/Article"
+import App from "../components/App"
+import Pager from "../components/Pager"
 
 type Props = PageProps<
   {
@@ -23,11 +25,12 @@ const BlogPostTemplate: React.FC<Props> = ({ location, data, pageContext }) => {
   const article = data.markdownRemark
   const { previous, next } = pageContext
   return (
-    <div>
+    <App location={location} metadata={metadata}>
       <Container>
         <Article single data={article} />
+        <Pager previous={previous} next={next} />
       </Container>
-    </div>
+    </App>
   )
 }
 

@@ -21,10 +21,7 @@ const Article: React.FC<Props> = ({ single, data }) => {
       </header>
 
       <p>
-        <span>
-          Published{" "}
-          <time dateTime={data.frontmatter.date}>{data.frontmatter.date}</time>
-        </span>
+        <time dateTime={data.frontmatter.date}>{data.frontmatter.date}</time>
       </p>
 
       {single ? (

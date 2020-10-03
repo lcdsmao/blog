@@ -18,14 +18,15 @@ type Props = PageProps<{
 const Home: React.FC<Props> = ({ data }) => {
   const metadata = data.site.siteMetadata
 
-  return (
-    <Container>
-      <Header metadata={metadata}></Header>
-      {data.allMarkdownRemark.edges.map(({ node }) => (
-        <h3>{node.fileAbsolutePath}</h3>
-      ))}
-    </Container>
-  )
+  return <div></div>
+  /* return ( */
+  /*   <Container> */
+  /*     <Header metadata={metadata}></Header> */
+  /*     {data.allMarkdownRemark.edges.map(({ node }) => ( */
+  /*       <h3>{node.fileAbsolutePath}</h3> */
+  /*     ))} */
+  /*   </Container> */
+  /* ) */
 }
 
 export default Home

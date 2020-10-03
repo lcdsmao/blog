@@ -1,5 +1,4 @@
 import React from "react"
-import { css } from "@emotion/core"
 
 type Props = {}
 
@@ -9,6 +8,7 @@ const Container: React.FC<Props> = ({ children }) => {
       css={{
         margin: "3rem auto",
         maxWidth: "850px",
+        padding: "0 3rem",
       }}
     >
       {children}
