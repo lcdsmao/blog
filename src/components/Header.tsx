@@ -1,7 +1,7 @@
 import React from "react"
 import { SiteMetadata } from "../types"
 
-export type Props = {
+type Props = {
   metadata: SiteMetadata
 }
 
