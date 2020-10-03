@@ -4,7 +4,7 @@ path = "about"
 date = 1993-07-01
 +++
 
-My name is Mao Yufeng. 
+My name is Mao Yufeng.
 
 I am a Software Engineer in Japan.
 

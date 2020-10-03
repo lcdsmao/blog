@@ -10,7 +10,7 @@ tags: ["cygwin", "zsh"]
 
 Download [cygwin installer](https://www.cygwin.com/) then execute:
 
-``` 
+```
 ./setup-x86_64.exe -q -P git,vim,curl,wget,zsh,chere
 ```
 

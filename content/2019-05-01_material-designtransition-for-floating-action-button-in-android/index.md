@@ -77,7 +77,7 @@ Create a `CoordinatorLayout` that contains two child views, a FAB and a target v
 Similar to the speed dial implementation, a specific behavior class `com.google.android.material.transformation.FabTransformationSheetBehavior` need to be bind to the target view.
 Notice that there is another requirement for the target view that the view must be a **`CircularRevealWidget`**.
 The material design components library already provided some often used layouts that implemented `CircularRevealWidget` for us, like `CircularRevealFrameLayout`.
-If the target view is not a CircularRevealWidget then no morph animation will appear. 
+If the target view is not a CircularRevealWidget then no morph animation will appear.
 
 Here is the sample layout xml:
 
@@ -103,7 +103,7 @@ Here is the sample layout xml:
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
 ```
 
-When `FloatingActionButton.isExpanded() == false` only the FAB will show and vice verse. 
+When `FloatingActionButton.isExpanded() == false` only the FAB will show and vice verse.
 To transform the FAB into the target view we can call `FloatingActionButton.setExpanded(true)` or transform the FAB back by calling `FloatingActionButton.setExpanded(false)`.
 
 ### Behind the scene
