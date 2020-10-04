@@ -7,7 +7,7 @@ const Container: React.FC<Props> = ({ children }) => {
     <div
       css={{
         margin: "3rem auto",
-        maxWidth: "850px",
+        maxWidth: "1000px",
         padding: "0 3rem",
       }}
     >

@@ -1,6 +1,8 @@
 import React from "react"
 import { Link } from "gatsby"
+import { css } from "@emotion/core"
 import { MarkdownRemark } from "../types"
+import { rhythm } from "../utils/typography"
 
 type Props = {
   single: Boolean
@@ -9,7 +11,19 @@ type Props = {
 
 const Article: React.FC<Props> = ({ single, data }) => {
   return (
-    <article>
+    <article
+      css={css({
+        '[class*="language-"]': {
+          fontSize: "initial",
+          "&::selection, & ::selection": {
+            background: "#cddce0",
+          },
+        },
+        'pre[class*="language-"]': {
+          marginBottom: rhythm(1),
+        },
+      })}
+    >
       <header>
         {single ? (
           <h1>{data.frontmatter.title}</h1>
