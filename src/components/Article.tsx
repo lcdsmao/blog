@@ -15,7 +15,7 @@ const Article: React.FC<Props> = ({ single, data }) => {
           <h1>{data.frontmatter.title}</h1>
         ) : (
           <h2>
-            <Link to="/TODO">{data.frontmatter.title}</Link>
+            <Link to={data.fields.slug}>{data.frontmatter.title}</Link>
           </h2>
         )}
       </header>
