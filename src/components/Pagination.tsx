@@ -1,6 +1,7 @@
 import React from "react"
-import { css } from "@emotion/core"
 import { Link } from "gatsby"
+/** @jsx jsx */
+import { jsx } from "theme-ui"
 
 type Props = {
   page: number
@@ -12,9 +13,9 @@ type Props = {
 const Pagination: React.FC<Props> = ({ page, total, previous, next }) => {
   return (
     <nav
-      css={css({
+      sx={{
         display: "flex",
-      })}
+      }}
     >
       <PreviousOrNextButton isPrevious={true} link={previous} />
       <span>
@@ -33,10 +34,10 @@ const PreviousOrNextButton: React.FC<{
 }> = ({ isPrevious, link }) => {
   return (
     <div
-      css={css({
+      sx={{
         flex: 1,
         textAlign: isPrevious ? "start" : "end",
-      })}
+      }}
     >
       {link ? (
         <Link to={link}>{isPrevious ? "Previous" : "Next"}</Link>

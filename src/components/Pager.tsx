@@ -1,8 +1,8 @@
 import React from "react"
 import { Link } from "gatsby"
-import { css } from "@emotion/core"
 import { MarkdownRemark } from "../types"
-import { rhythm } from "../utils/typography"
+/** @jsx jsx */
+import { jsx } from "theme-ui"
 
 const PreviousOrNextButton: React.FC<{
   isPrevious: Boolean
@@ -11,22 +11,22 @@ const PreviousOrNextButton: React.FC<{
   const paddingKey = isPrevious ? "paddingLeft" : "paddingRight"
   return (
     <div
-      css={css({
+      sx={{
         flex: 1,
         textAlign: isPrevious ? "end" : "start",
-        marginTop: rhythm(1 / 4),
-        [paddingKey]: rhythm(1 / 4),
+        marginTop: 1,
+        [paddingKey]: 1,
         alignItems: "stretch",
-      })}
+      }}
     >
       {node ? (
         <Link
-          css={css({
+          sx={{
             "& span": {
               position: "relative",
               display: "block",
             },
-          })}
+          }}
           to={node.fields.slug}
         >
           <span>{isPrevious ? "Older Post" : "Newer Post"}</span>
@@ -47,9 +47,9 @@ type Props = {
 const Pager: React.FC<Props> = ({ previous, next }) => {
   return (
     <nav
-      css={css({
+      sx={{
         display: "flex",
-      })}
+      }}
     >
       <PreviousOrNextButton isPrevious={false} node={next} />
       <PreviousOrNextButton isPrevious={true} node={previous} />
