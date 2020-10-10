@@ -16,9 +16,6 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: `gatsby-plugin-theme-ui`,
-    },
-    {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "content",
@@ -38,11 +35,10 @@ module.exports = {
             },
           },
           `gatsby-remark-copy-linked-files`,
-          {
-            resolve: `gatsby-remark-prismjs`,
-          },
+          `gatsby-remark-prismjs`,
         ],
       },
     },
+    `gatsby-plugin-theme-ui`,
   ],
 }
