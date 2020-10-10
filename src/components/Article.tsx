@@ -1,10 +1,11 @@
 import React from "react"
 import { Link } from "gatsby"
-import { MarkdownRemark } from "../types"
+import { Mdx } from "../types"
+import { MDXRenderer } from "gatsby-plugin-mdx"
 
 type Props = {
   single: Boolean
-  data: MarkdownRemark
+  data: Mdx
 }
 
 const Article: React.FC<Props> = ({ single, data }) => {
@@ -24,11 +25,7 @@ const Article: React.FC<Props> = ({ single, data }) => {
         <time dateTime={data.frontmatter.date}>{data.frontmatter.date}</time>
       </p>
 
-      {single ? (
-        <div dangerouslySetInnerHTML={{ __html: data.html }} />
-      ) : (
-        <p>{data.excerpt}</p>
-      )}
+      {single ? <MDXRenderer>{data.body}</MDXRenderer> : <p>{data.excerpt}</p>}
     </article>
   )
 }

@@ -14,10 +14,10 @@ export type Frontmatter = {
   tags: string[]
 }
 
-export type MarkdownRemark = {
+export type Mdx = {
   id: string
   excerpt: string
-  html: string
+  body: string
   frontmatter: Frontmatter
   fields: {
     slug: string

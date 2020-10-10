@@ -1,12 +1,12 @@
 import React from "react"
 import { Link } from "gatsby"
-import { MarkdownRemark } from "../types"
+import { Mdx } from "../types"
 /** @jsx jsx */
 import { jsx } from "theme-ui"
 
 const PreviousOrNextButton: React.FC<{
   isPrevious: Boolean
-  node: MarkdownRemark | null
+  node: Mdx | null
 }> = ({ isPrevious, node }) => {
   const paddingKey = isPrevious ? "paddingLeft" : "paddingRight"
   return (
@@ -40,8 +40,8 @@ const PreviousOrNextButton: React.FC<{
 }
 
 type Props = {
-  previous: MarkdownRemark | null
-  next: MarkdownRemark | null
+  previous: Mdx | null
+  next: Mdx | null
 }
 
 const Pager: React.FC<Props> = ({ previous, next }) => {

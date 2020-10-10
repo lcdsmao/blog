@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql, PageProps } from "gatsby"
-import { SiteMetadata, MarkdownRemark } from "../types"
+import { SiteMetadata, Mdx } from "../types"
 import Container from "../components/Container"
 import Article from "../components/Article"
 import App from "../components/App"
@@ -11,18 +11,18 @@ type Props = PageProps<
     site: {
       siteMetadata: SiteMetadata
     }
-    markdownRemark: MarkdownRemark
+    mdx: Mdx
   },
   {
     slug: string
-    previous: MarkdownRemark
-    next: MarkdownRemark
+    previous: Mdx
+    next: Mdx
   }
 >
 
 const BlogPostTemplate: React.FC<Props> = ({ location, data, pageContext }) => {
   const metadata = data.site.siteMetadata
-  const article = data.markdownRemark
+  const article = data.mdx
   const { previous, next } = pageContext
   return (
     <App location={location} metadata={metadata}>
@@ -49,8 +49,8 @@ export const query = graphql`
         }
       }
     }
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      html
+    mdx(fields: { slug: { eq: $slug } }) {
+      body
       frontmatter {
         title
         tags

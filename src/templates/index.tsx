@@ -3,7 +3,7 @@ import { PageProps, graphql } from "gatsby"
 import App from "../components/App"
 import Container from "../components/Container"
 import Article from "../components/Article"
-import { SiteMetadata, MarkdownRemark } from "../types"
+import { SiteMetadata, Mdx } from "../types"
 import Pagination from "../components/Pagination"
 
 type Props = PageProps<
@@ -11,9 +11,9 @@ type Props = PageProps<
     site: {
       siteMetadata: SiteMetadata
     }
-    allMarkdownRemark: {
+    allMdx: {
       edges: {
-        node: MarkdownRemark
+        node: Mdx
       }[]
     }
   },
@@ -30,7 +30,7 @@ type Props = PageProps<
 
 const Index: React.FC<Props> = ({ data, location, pageContext }) => {
   const metadata = data.site.siteMetadata
-  const articls = data.allMarkdownRemark.edges
+  const articls = data.allMdx.edges
   return (
     <App location={location} metadata={metadata}>
       <Container>
@@ -64,7 +64,7 @@ export const query = graphql`
         }
       }
     }
-    allMarkdownRemark(
+    allMdx(
       sort: { order: DESC, fields: [frontmatter___date] }
       skip: $skip
       limit: $limit
