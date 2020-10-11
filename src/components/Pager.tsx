@@ -1,8 +1,6 @@
-import React from "react"
 import { Link } from "gatsby"
+import React from "react"
 import { Mdx } from "../types"
-/** @jsx jsx */
-import { jsx } from "theme-ui"
 
 const PreviousOrNextButton: React.FC<{
   isPrevious: Boolean

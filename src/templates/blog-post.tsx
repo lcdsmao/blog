@@ -1,10 +1,10 @@
-import React from "react"
 import { graphql, PageProps } from "gatsby"
-import { SiteMetadata, Mdx } from "../types"
+import React from "react"
 import { Container } from "theme-ui"
-import Article from "../components/Article"
 import App from "../components/App"
+import Article from "../components/Article"
 import Pager from "../components/Pager"
+import { Mdx, SiteMetadata } from "../types"
 
 type Props = PageProps<
   {

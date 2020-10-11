@@ -1,7 +1,7 @@
-import React from "react"
 import { Link } from "gatsby"
-import { Mdx } from "../types"
 import { MDXRenderer } from "gatsby-plugin-mdx"
+import React from "react"
+import { Mdx } from "../types"
 
 type Props = {
   single: Boolean
