@@ -1,4 +1,5 @@
 import { Link } from "gatsby"
+import { MDXProvider } from "@mdx-js/react"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import React from "react"
 import { Mdx } from "../types"
@@ -46,7 +47,25 @@ const Article: React.FC<Props> = ({ single, data }) => {
         <time dateTime={data.frontmatter.date}>{data.frontmatter.date}</time>
       </p>
 
-      {single ? <MDXRenderer>{data.body}</MDXRenderer> : <p>{data.excerpt}</p>}
+      {single ? (
+        <MDXProvider
+          components={{
+            a: props => (
+              <a
+                {...props}
+                sx={{
+                  color: "secondary",
+                  textDecoration: "underline",
+                }}
+              />
+            ),
+          }}
+        >
+          <MDXRenderer>{data.body}</MDXRenderer>
+        </MDXProvider>
+      ) : (
+        <p>{data.excerpt}</p>
+      )}
     </article>
   )
 }

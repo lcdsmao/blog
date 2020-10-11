@@ -55,7 +55,11 @@ const styles = {
   code: {
     fontFamily: "monospace",
     color: "secondary",
+    borderRadius: 2,
     fontSize: 1,
+    bg: "muted",
+    px: 1,
+    py: 1,
   },
   inlineCode: {
     fontFamily: "monospace",

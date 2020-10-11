@@ -1,5 +1,5 @@
 import React from "react"
-import { Container, Button } from "theme-ui"
+import { Container } from "theme-ui"
 import { SiteMetadata } from "../types"
 import { Link } from "gatsby"
 import { Styled } from "theme-ui"
