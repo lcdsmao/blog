@@ -17,7 +17,7 @@ const Header: React.FC<Props> = ({ isHome, metadata }) => {
         display: "flex",
         alignItems: "baseline",
         justifyContent: "space-between",
-        marginTop: 4,
+        marginTop: 5,
         gap: 3,
         a: {
           variant: "textStyles.heading",

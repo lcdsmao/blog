@@ -11,9 +11,21 @@ type Props = {
 
 const App: React.FC<Props> = ({ location, metadata, children }) => {
   return (
-    <div>
+    <div
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        minHeight: "100vh",
+      }}
+    >
       <Header isHome={location.pathname === "/"} metadata={metadata} />
-      <main>{children}</main>
+      <main
+        sx={{
+          flex: "1 0 auto",
+        }}
+      >
+        {children}
+      </main>
       <Footer metadata={metadata} />
     </div>
   )
