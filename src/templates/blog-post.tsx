@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql, PageProps } from "gatsby"
 import { SiteMetadata, Mdx } from "../types"
-import Container from "../components/Container"
+import { Container } from "theme-ui"
 import Article from "../components/Article"
 import App from "../components/App"
 import Pager from "../components/Pager"

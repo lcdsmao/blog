@@ -1,7 +1,7 @@
 import React from "react"
 import { PageProps, graphql } from "gatsby"
 import App from "../components/App"
-import Container from "../components/Container"
+import { Container } from "theme-ui"
 import Article from "../components/Article"
 import { SiteMetadata, Mdx } from "../types"
 import Pagination from "../components/Pagination"
