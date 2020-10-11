@@ -5,6 +5,7 @@ import App from "../components/App"
 import Article from "../components/Article"
 import Pager from "../components/Pager"
 import { Mdx, SiteMetadata } from "../types"
+import Seo from "../components/Seo"
 
 type Props = PageProps<
   {
@@ -26,6 +27,13 @@ const BlogPostTemplate: React.FC<Props> = ({ location, data, pageContext }) => {
   const { previous, next } = pageContext
   return (
     <App location={location} metadata={metadata}>
+      <Seo
+        location={location}
+        metadata={data.site.siteMetadata}
+        title={data.mdx.frontmatter.title}
+        description={data.mdx.excerpt}
+        article={true}
+      />
       <Container>
         <Article single data={article} />
         <Pager previous={previous} next={next} />

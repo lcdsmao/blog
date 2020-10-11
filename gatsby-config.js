@@ -7,6 +7,7 @@
 module.exports = {
   siteMetadata: {
     title: `lcdsmao`,
+    titleTemplate: `%s | lcdsmao`,
     description: `lcdsmao blog`,
     siteUrl: `https://lcdsmao.dev/`,
     social: {

@@ -1,5 +1,6 @@
 export type SiteMetadata = {
   title: string
+  titleTemplate: string
   description: string
   siteUrl: string
   social: {
