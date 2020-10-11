@@ -1,0 +1,57 @@
+{
+  "name": "lcdsmao-blog",
+  "private": true,
+  "description": "lcdsmao blog",
+  "version": "1.1.0",
+  "scripts": {
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "develop": "gatsby develop",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "build": "gatsby build",
+    "clean": "gatsby clean"
+  },
+  "dependencies": {
+    "@mdx-js/mdx": "^1.6.18",
+    "@mdx-js/react": "^1.6.18",
+    "gatsby": "^2.24.73",
+    "gatsby-awesome-pagination": "^0.3.6",
+    "gatsby-image": "^2.4.21",
+    "gatsby-plugin-manifest": "^2.4.34",
+    "gatsby-plugin-mdx": "^1.2.46",
+    "gatsby-plugin-react-helmet": "^3.3.14",
+    "gatsby-plugin-sharp": "^2.6.40",
+    "gatsby-plugin-theme-ui": "^0.4.0-rc.1",
+    "gatsby-remark-copy-linked-files": "^2.3.19",
+    "gatsby-remark-images": "^3.3.33",
+    "gatsby-remark-prismjs": "^3.5.16",
+    "gatsby-source-filesystem": "^2.3.34",
+    "gatsby-transformer-sharp": "^2.5.17",
+    "prismjs": "^1.21.0",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-helmet": "^6.1.0",
+    "theme-ui": "^0.4.0-rc.1"
+  },
+  "devDependencies": {
+    "@babel/plugin-transform-react-jsx": "^7.10.4",
+    "@emotion/babel-plugin-jsx-pragmatic": "^0.1.5",
+    "@types/mdx-js__react": "^1.5.3",
+    "@types/node": "^14.11.8",
+    "@types/react": "^16.9.51",
+    "@types/react-dom": "^16.9.8",
+    "@types/react-helmet": "^6.1.0",
+    "@types/theme-ui": "^0.3.7",
+    "babel-preset-gatsby": "^0.5.13",
+    "import-sort-style-module": "^6.0.0",
+    "prettier": "^2.1.2",
+    "prettier-plugin-import-sort": "0.0.6",
+    "typescript": "^4.0.3"
+  },
+  "importSort": {
+    ".js, .jsx, .ts, .tsx": {
+      "style": "module",
+      "parser": "typescript"
+    }
+  }
+}
