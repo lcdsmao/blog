@@ -12,10 +12,8 @@ const App: React.FC<Props> = ({ location, metadata, children }) => {
   return (
     <>
       <div>
-        <div>
-          <Header isHome={location.pathname === "/"} metadata={metadata} />
-          <main>{children}</main>
-        </div>
+        <Header isHome={location.pathname === "/"} metadata={metadata} />
+        <main>{children}</main>
       </div>
     </>
   )

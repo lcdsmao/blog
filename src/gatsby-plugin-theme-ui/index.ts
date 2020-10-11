@@ -4,9 +4,9 @@ const colors = {
   primary: "hsl(10, 80%, 50%)",
   secondary: "hsl(10, 60%, 50%)",
   highlight: "hsl(10, 40%, 90%)",
-  purple: "hsl(250, 60%, 30%)",
   muted: "hsl(10, 20%, 94%)",
-  gray: "hsl(10, 20%, 50%)",
+  prismVariable: "hsl(250, 60%, 30%)",
+  prismComment: "hsl(10, 20%, 50%)",
 }
 
 const styles = {
@@ -34,9 +34,10 @@ const styles = {
     fontSize: 1,
   },
   a: {
-    color: "primary",
+    color: "text",
+    textDecoration: "none",
     "&:hover": {
-      color: "secondary",
+      color: "primary",
     },
   },
   pre: {
@@ -144,13 +145,13 @@ const theme = {
   },
   prism: {
     ".comment,.prolog,.doctype,.cdata,.punctuation,.operator,.entity,.url": {
-      color: "gray",
+      color: "prismComment",
     },
     ".comment": {
       fontStyle: "italic",
     },
     ".property,.tag,.boolean,.number,.constant,.symbol,.deleted,.function,.class-name,.regex,.important,.variable": {
-      color: "purple",
+      color: "prismVariable",
     },
     ".atrule,.attr-value,.keyword": {
       color: "primary",
