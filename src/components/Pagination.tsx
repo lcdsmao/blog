@@ -20,7 +20,7 @@ const Pagination: React.FC<Props> = ({ page, total, previous, next }) => {
     >
       <PageTurnLink
         sx={{
-          flex: "1 0 auto",
+          flex: "1 0 0",
         }}
         type="previous"
         to={previous}
@@ -37,7 +37,7 @@ const Pagination: React.FC<Props> = ({ page, total, previous, next }) => {
 
       <PageTurnLink
         sx={{
-          flex: "1 0 auto",
+          flex: "1 0 0",
         }}
         type="next"
         to={next}
