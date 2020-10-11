@@ -1,41 +1,6 @@
-import { Link } from "gatsby"
 import React from "react"
 import { Mdx } from "../types"
-
-const PreviousOrNextButton: React.FC<{
-  isPrevious: Boolean
-  node: Mdx | null
-}> = ({ isPrevious, node }) => {
-  const paddingKey = isPrevious ? "paddingLeft" : "paddingRight"
-  return (
-    <div
-      sx={{
-        flex: 1,
-        textAlign: isPrevious ? "end" : "start",
-        marginTop: 1,
-        [paddingKey]: 1,
-        alignItems: "stretch",
-      }}
-    >
-      {node ? (
-        <Link
-          sx={{
-            "& span": {
-              position: "relative",
-              display: "block",
-            },
-          }}
-          to={node.fields.slug}
-        >
-          <span>{isPrevious ? "Older Post" : "Newer Post"}</span>
-          <span>{node.frontmatter.title}</span>
-        </Link>
-      ) : (
-        <span />
-      )}
-    </div>
-  )
-}
+import PageTurnLink from "./PageTurnLink"
 
 type Props = {
   previous: Mdx | null
@@ -47,10 +12,27 @@ const Pager: React.FC<Props> = ({ previous, next }) => {
     <nav
       sx={{
         display: "flex",
+        gap: 4,
+        marginTop: 5,
       }}
     >
-      <PreviousOrNextButton isPrevious={false} node={next} />
-      <PreviousOrNextButton isPrevious={true} node={previous} />
+      <PageTurnLink
+        type={"previous"}
+        to={previous?.fields?.slug}
+        title={previous?.frontmatter?.title}
+        sx={{
+          flex: "1 1 auto",
+        }}
+      />
+
+      <PageTurnLink
+        type={"next"}
+        to={next?.fields.slug}
+        title={next?.frontmatter?.title}
+        sx={{
+          flex: "1 1 auto",
+        }}
+      />
     </nav>
   )
 }

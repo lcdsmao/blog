@@ -1,5 +1,6 @@
 import { Link } from "gatsby"
 import React from "react"
+import PageTurnLink from "./PageTurnLink"
 
 type Props = {
   page: number
@@ -13,35 +14,36 @@ const Pagination: React.FC<Props> = ({ page, total, previous, next }) => {
     <nav
       sx={{
         display: "flex",
+        alignItems: "baseline",
+        marginTop: 5,
       }}
     >
-      <PreviousOrNextButton isPrevious={true} link={previous} />
-      <span>
+      <PageTurnLink
+        sx={{
+          flex: "1 0 auto",
+        }}
+        type="previous"
+        to={previous}
+      />
+
+      <div
+        sx={{
+          fontSize: 1,
+          fontWeight: "bold",
+        }}
+      >
         Page {page} of {total}
-      </span>
-      <PreviousOrNextButton isPrevious={false} link={next} />
+      </div>
+
+      <PageTurnLink
+        sx={{
+          flex: "1 0 auto",
+        }}
+        type="next"
+        to={next}
+      />
     </nav>
   )
 }
 
 export default Pagination
-
-const PreviousOrNextButton: React.FC<{
-  isPrevious: boolean
-  link: string | null
-}> = ({ isPrevious, link }) => {
-  return (
-    <div
-      sx={{
-        flex: 1,
-        textAlign: isPrevious ? "start" : "end",
-      }}
-    >
-      {link ? (
-        <Link to={link}>{isPrevious ? "Previous" : "Next"}</Link>
-      ) : (
-        <a aria-disabled={true}></a>
-      )}
-    </div>
-  )
-}
