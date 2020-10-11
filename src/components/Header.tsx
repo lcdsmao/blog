@@ -1,5 +1,5 @@
 import React from "react"
-import { Container, useColorMode, Button } from "theme-ui"
+import { Container, useColorMode } from "theme-ui"
 import { SiteMetadata } from "../types"
 import { Link } from "gatsby"
 import { SunIcon, MoonIcon } from "./icons"
