@@ -5,11 +5,15 @@ const { paginate } = require("gatsby-awesome-pagination")
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
   if (node.internal.type === "Mdx") {
-    const slug = createFilePath({ node, getNode })
+    const relativePath = createFilePath({
+      node,
+      getNode,
+      basePath: "content/blog/",
+    })
     createNodeField({
       node,
       name: "slug",
-      value: slug,
+      value: relativePath.split("_")[1], // remove date prefix
     })
   }
 }
