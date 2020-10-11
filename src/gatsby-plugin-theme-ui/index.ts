@@ -52,6 +52,16 @@ const styles = {
       color: "primary",
     },
   },
+  blockquote: {
+    bg: "highlight",
+    borderRadius: "4px",
+    borderLeft: "8px solid",
+    borderColor: "primary",
+    m: 0,
+    py: 1,
+    paddingLeft: 3,
+    paddingRight: 2,
+  },
   pre: {
     variant: "prism",
     fontFamily: "monospace",
