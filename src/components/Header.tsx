@@ -52,7 +52,7 @@ const Header: React.FC<Props> = ({ isHome, metadata }) => {
           p: 1,
           outline: "inherit",
           opacity: 0.7,
-          "&:hover, &:focus": {
+          "&:hover": {
             opacity: 1,
           },
         }}
