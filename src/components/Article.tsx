@@ -10,18 +10,39 @@ type Props = {
 
 const Article: React.FC<Props> = ({ single, data }) => {
   return (
-    <article>
+    <article
+      sx={{
+        marginBottom: 4,
+      }}
+    >
       <header>
         {single ? (
-          <h1>{data.frontmatter.title}</h1>
+          <h1
+            sx={{
+              marginBottom: 1,
+            }}
+          >
+            {data.frontmatter.title}
+          </h1>
         ) : (
-          <h2>
+          <h2
+            sx={{
+              variant: "textStyles.display",
+              fontSize: [4, 5],
+              marginBottom: 0,
+            }}
+          >
             <Link to={data.fields.slug}>{data.frontmatter.title}</Link>
           </h2>
         )}
       </header>
 
-      <p>
+      <p
+        sx={{
+          opacity: 0.5,
+          marginBottom: single ? 4 : 0,
+        }}
+      >
         <time dateTime={data.frontmatter.date}>{data.frontmatter.date}</time>
       </p>
 
