@@ -2,6 +2,7 @@ import React from "react"
 import { Container, useColorMode, Button } from "theme-ui"
 import { SiteMetadata } from "../types"
 import { Link } from "gatsby"
+import { SunIcon, MoonIcon } from "./icons"
 
 type Props = {
   isHome: boolean
@@ -16,6 +17,7 @@ const Header: React.FC<Props> = ({ isHome, metadata }) => {
         display: "flex",
         alignItems: "baseline",
         justifyContent: "space-between",
+        marginTop: 4,
         gap: 3,
         a: {
           variant: "textStyles.heading",
@@ -43,16 +45,40 @@ const Header: React.FC<Props> = ({ isHome, metadata }) => {
         <a href={`https://twitter.com/${metadata.social.twitter}`}>Twitter</a>
       </div>
 
-      <Button
+      <button
         sx={{
-          fontSize: 1,
+          background: "inherit",
+          border: "none",
+          p: 1,
+          outline: "inherit",
+          opacity: 0.7,
+          "&:hover, &:focus": {
+            opacity: 1,
+          },
         }}
+        title={`Toggle ${colorMode === "default" ? "Dark" : "Light"}`}
         onClick={_ => {
           setColorMode(colorMode === "default" ? "dark" : "default")
         }}
       >
-        Toggle {colorMode === "default" ? "Dark" : "Light"}
-      </Button>
+        {colorMode === "default" ? (
+          <SunIcon
+            sx={{
+              width: "1.5rem",
+              height: "1.5rem",
+              color: "text",
+            }}
+          />
+        ) : (
+          <MoonIcon
+            sx={{
+              width: "1.5rem",
+              height: "1.5rem",
+              color: "text",
+            }}
+          />
+        )}
+      </button>
     </Container>
   )
 }
