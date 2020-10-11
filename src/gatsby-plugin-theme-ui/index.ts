@@ -14,7 +14,7 @@ const colors = {
       primary: "#FF7597",
       secondary: "#FF5083",
       muted: "#1F1F1F",
-      highlight: "#FFC5CD",
+      highlight: "#8F5B78",
       prismVariable: "#BB86FC",
       prismComment: "#999",
     },
