@@ -1,7 +1,8 @@
+import { PageProps } from "gatsby"
 import React from "react"
 import { Helmet } from "react-helmet"
+
 import { SiteMetadata } from "../types"
-import { PageProps } from "gatsby"
 
 type Props = {
   location: PageProps["location"]

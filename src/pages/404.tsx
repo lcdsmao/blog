@@ -1,9 +1,10 @@
-import React from "react"
-import { graphql, PageProps } from "gatsby"
-import { SiteMetadata } from "../types"
-import App from "../components/App"
-import { Container } from "theme-ui"
+import { PageProps, graphql } from "gatsby"
 import Img, { FluidObject } from "gatsby-image"
+import React from "react"
+import { Container } from "theme-ui"
+
+import App from "../components/App"
+import { SiteMetadata } from "../types"
 
 type Props = PageProps<{
   site: {

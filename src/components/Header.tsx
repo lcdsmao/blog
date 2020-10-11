@@ -1,8 +1,9 @@
+import { Link } from "gatsby"
 import React from "react"
 import { Container, useColorMode } from "theme-ui"
+
 import { SiteMetadata } from "../types"
-import { Link } from "gatsby"
-import { SunIcon, MoonIcon } from "./icons"
+import { MoonIcon, SunIcon } from "./icons"
 
 type Props = {
   isHome: boolean

@@ -1,7 +1,8 @@
-import { Link } from "gatsby"
 import { MDXProvider } from "@mdx-js/react"
+import { Link } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import React from "react"
+
 import { Mdx } from "../types"
 
 type Props = {

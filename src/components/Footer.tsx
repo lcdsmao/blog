@@ -1,7 +1,8 @@
-import React from "react"
-import { SiteMetadata } from "../types"
-import { useStaticQuery, graphql } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
+import React from "react"
+
+import { SiteMetadata } from "../types"
 
 type Props = {
   metadata: SiteMetadata
