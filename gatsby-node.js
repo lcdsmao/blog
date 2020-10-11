@@ -14,7 +14,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   }
 }
 
-const ItemsPerPage = 2
+const ItemsPerPage = 10
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
