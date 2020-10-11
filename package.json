@@ -2,15 +2,14 @@
   "name": "lcdsmao-blog",
   "private": true,
   "description": "lcdsmao blog",
-  "version": "0.1.0",
+  "version": "1.1.0",
   "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "develop": "gatsby develop",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "build": "gatsby build",
+    "clean": "gatsby clean"
   },
   "dependencies": {
     "@mdx-js/mdx": "^1.6.18",
