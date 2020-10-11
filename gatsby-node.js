@@ -8,12 +8,11 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     const relativePath = createFilePath({
       node,
       getNode,
-      basePath: "content/blog/",
     })
     createNodeField({
       node,
       name: "slug",
-      value: relativePath.split("_")[1], // remove date prefix
+      value: `/${relativePath.split("_")[1]}`, // remove folder, date prefix
     })
   }
 }

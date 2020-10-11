@@ -28,7 +28,7 @@ const Pager: React.FC<Props> = ({ previous, next }) => {
 
       <PageTurnLink
         type={"next"}
-        to={next?.fields.slug}
+        to={next?.fields?.slug}
         title={next?.frontmatter?.title}
         sx={{
           flex: "1 1 auto",
