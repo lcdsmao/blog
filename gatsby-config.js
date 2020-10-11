@@ -6,19 +6,31 @@
 
 module.exports = {
   siteMetadata: {
-    title: "lcdsmao",
-    description: "lcdsmao blog",
-    siteUrl: "https://lcdsmao.dev/",
+    title: `lcdsmao`,
+    description: `lcdsmao blog`,
+    siteUrl: `https://lcdsmao.dev/`,
     social: {
-      twitter: "lcdsmao",
-      github: "lcdsmao",
+      twitter: `lcdsmao`,
+      github: `lcdsmao`,
     },
   },
   plugins: [
     {
-      resolve: "gatsby-source-filesystem",
+      resolve: `gatsby-plugin-manifest`,
       options: {
-        name: "content",
+        name: `lcdsmao`,
+        short_name: `lcdsmao`,
+        start_url: `/`,
+        background_color: `#fafaf9`,
+        theme_color: `#e63b19`,
+        display: `standalone`,
+        icon: `src/images/icon.png`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `content`,
         path: `${__dirname}/content/`,
       },
     },

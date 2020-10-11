@@ -1,12 +1,12 @@
 const colors = {
-  text: "hsl(10, 20%, 20%)",
-  background: "hsl(10, 10%, 98%)",
-  primary: "hsl(10, 80%, 50%)",
-  secondary: "hsl(10, 60%, 50%)",
-  highlight: "hsl(10, 40%, 90%)",
-  muted: "hsl(10, 20%, 94%)",
-  prismVariable: "hsl(250, 60%, 30%)",
-  prismComment: "hsl(10, 20%, 50%)",
+  text: "#3d2c29",
+  background: "#fafaf9",
+  primary: "#e63b19",
+  secondary: "#cc4c33",
+  highlight: "#f0dfdb",
+  muted: "#f3eeed",
+  prismVariable: "#2e1f7a",
+  prismComment: "#996f66",
   modes: {
     dark: {
       text: "#F2F5F7",
