@@ -7,6 +7,18 @@ const colors = {
   muted: "hsl(10, 20%, 94%)",
   prismVariable: "hsl(250, 60%, 30%)",
   prismComment: "hsl(10, 20%, 50%)",
+  modes: {
+    dark: {
+      text: "#F2F5F7",
+      background: "#121212",
+      primary: "#FF7597",
+      secondary: "#FF5083",
+      muted: "#1F1F1F",
+      highlight: "#FFC5CD",
+      prismVariable: "#BB86FC",
+      prismComment: "#999",
+    },
+  },
 }
 
 const styles = {
@@ -99,6 +111,7 @@ const styles = {
 }
 
 const theme = {
+  useColorSchemeMediaQuery: true,
   colors: colors,
   breakpoints: ["40em", "52em", "64em"],
   space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
