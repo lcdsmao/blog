@@ -15,7 +15,7 @@ const Pagination: React.FC<Props> = ({ page, total, previous, next }) => {
       sx={{
         display: "flex",
         alignItems: "baseline",
-        marginTop: 5,
+        marginTop: [4, 5],
       }}
     >
       <PageTurnLink

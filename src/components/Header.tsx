@@ -1,6 +1,5 @@
 import { Link } from "gatsby"
 import React from "react"
-import { Container } from "theme-ui"
 
 import { SiteMetadata } from "../types"
 import DarkToggleButton from "./DarkToggleButton"
@@ -12,12 +11,12 @@ type Props = {
 
 const Header: React.FC<Props> = ({ isHome, metadata }) => {
   return (
-    <Container
+    <div
       sx={{
         display: "flex",
         alignItems: "baseline",
         justifyContent: "space-between",
-        marginTop: 5,
+        marginTop: [2, 3],
         gap: 3,
         a: {
           variant: "textStyles.heading",
@@ -45,7 +44,7 @@ const Header: React.FC<Props> = ({ isHome, metadata }) => {
         <a href={`https://twitter.com/${metadata.social.twitter}`}>Twitter</a>
       </div>
       <DarkToggleButton />
-    </Container>
+    </div>
   )
 }
 

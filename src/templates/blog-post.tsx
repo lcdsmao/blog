@@ -35,10 +35,8 @@ const BlogPostTemplate: React.FC<Props> = ({ location, data, pageContext }) => {
         description={data.mdx.excerpt}
         article={true}
       />
-      <Container>
-        <Article single data={article} />
-        <Pager previous={previous} next={next} />
-      </Container>
+      <Article single data={article} />
+      <Pager previous={previous} next={next} />
     </App>
   )
 }

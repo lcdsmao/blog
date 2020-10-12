@@ -36,18 +36,16 @@ const Index: React.FC<Props> = ({ data, location, pageContext }) => {
   return (
     <App location={location} metadata={metadata}>
       <Seo location={location} metadata={data.site.siteMetadata} />
-      <Container>
-        {articls.map(({ node }) => (
-          <Article key={node.fields.slug} single={false} data={node} />
-        ))}
+      {articls.map(({ node }) => (
+        <Article key={node.fields.slug} single={false} data={node} />
+      ))}
 
-        <Pagination
-          page={pageContext.humanPageNumber}
-          total={pageContext.numberOfPages}
-          previous={pageContext.previousPagePath || null}
-          next={pageContext.nextPagePath || null}
-        />
-      </Container>
+      <Pagination
+        page={pageContext.humanPageNumber}
+        total={pageContext.numberOfPages}
+        previous={pageContext.previousPagePath || null}
+        next={pageContext.nextPagePath || null}
+      />
     </App>
   )
 }

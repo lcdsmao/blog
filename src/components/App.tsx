@@ -1,5 +1,6 @@
 import { PageProps } from "gatsby"
 import React from "react"
+import { Container } from "theme-ui"
 
 import { SiteMetadata } from "../types"
 import Footer from "./Footer"
@@ -19,14 +20,20 @@ const App: React.FC<Props> = ({ location, metadata, children }) => {
         minHeight: "100vh",
       }}
     >
-      <Header isHome={location.pathname === "/"} metadata={metadata} />
-      <main
+      <Container
         sx={{
           flex: "1 0 auto",
         }}
       >
-        {children}
-      </main>
+        <Header isHome={location.pathname === "/"} metadata={metadata} />
+        <main
+          sx={{
+            marginTop: 4,
+          }}
+        >
+          {children}
+        </main>
+      </Container>
       <Footer metadata={metadata} />
     </div>
   )
