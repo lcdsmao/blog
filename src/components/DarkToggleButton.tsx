@@ -12,7 +12,7 @@ const appear = keyframes`
 
   100% {
     transform: scale(1.0);
-    opacity: 1.0;
+    opacity: 0.7;
   }
 `
 
@@ -24,6 +24,11 @@ const DarkToggleButton: React.FC = () => {
     height: "1.5rem",
     color: "text",
     animation: buttonRef.current ? `${appear} 0.3s ease-in` : "none",
+    opacity: 0.7,
+    transition: "opacity 0.3s ease-in",
+    "&:hover": {
+      opacity: 1,
+    },
   }
 
   return (
@@ -33,10 +38,6 @@ const DarkToggleButton: React.FC = () => {
         border: "none",
         p: 1,
         outline: "inherit",
-        opacity: 0.7,
-        "&:hover": {
-          opacity: 1,
-        },
       }}
       ref={buttonRef}
       title={`Toggle ${colorMode === "default" ? "Dark" : "Light"}`}
