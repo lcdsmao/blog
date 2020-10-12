@@ -28,8 +28,8 @@ const Footer: React.FC<Props> = ({ metadata }) => {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        marginTop: 5,
-        py: 5,
+        marginTop: [3, 4],
+        py: 4,
         bg: "muted",
       }}
     >
