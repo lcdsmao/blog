@@ -1,4 +1,5 @@
 import { keyframes } from "@emotion/core"
+import { useEffect, useRef, useState } from "react"
 import { useColorMode } from "theme-ui"
 
 import { MoonIcon, SunIcon } from "./icons"
@@ -17,6 +18,8 @@ const appear = keyframes`
 
 const DarkToggleButton: React.FC = () => {
   const [colorMode, setColorMode] = useColorMode()
+  const buttonRef = useRef(null)
+
   if (!colorMode) {
     return null
   }
@@ -24,7 +27,7 @@ const DarkToggleButton: React.FC = () => {
     width: "1.5rem",
     height: "1.5rem",
     color: "text",
-    animation: `${appear} 0.3s ease-in`,
+    animation: buttonRef.current ? `${appear} 0.3s ease-in` : "none",
   }
   return (
     <button
@@ -38,6 +41,7 @@ const DarkToggleButton: React.FC = () => {
           opacity: 1,
         },
       }}
+      ref={buttonRef}
       title={`Toggle ${colorMode === "default" ? "Dark" : "Light"}`}
       onClick={_ => {
         setColorMode(colorMode === "default" ? "dark" : "default")
