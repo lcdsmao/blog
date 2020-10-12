@@ -1,5 +1,5 @@
 import { keyframes } from "@emotion/core"
-import { useEffect, useRef, useState } from "react"
+import { useRef } from "react"
 import { useColorMode } from "theme-ui"
 
 import { MoonIcon, SunIcon } from "./icons"
@@ -19,16 +19,13 @@ const appear = keyframes`
 const DarkToggleButton: React.FC = () => {
   const [colorMode, setColorMode] = useColorMode()
   const buttonRef = useRef(null)
-
-  if (!colorMode) {
-    return null
-  }
   const iconSx = {
     width: "1.5rem",
     height: "1.5rem",
     color: "text",
     animation: buttonRef.current ? `${appear} 0.3s ease-in` : "none",
   }
+
   return (
     <button
       sx={{
