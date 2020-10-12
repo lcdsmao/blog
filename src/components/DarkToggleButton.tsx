@@ -1,12 +1,30 @@
+import { keyframes } from "@emotion/core"
 import { useColorMode } from "theme-ui"
 
 import { MoonIcon, SunIcon } from "./icons"
 
+const appear = keyframes`
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1.0);
+    opacity: 1.0;
+  }
+`
+
 const DarkToggleButton: React.FC = () => {
   const [colorMode, setColorMode] = useColorMode()
-  console.log(colorMode)
   if (!colorMode) {
     return null
+  }
+  const iconSx = {
+    width: "1.5rem",
+    height: "1.5rem",
+    color: "text",
+    animation: `${appear} 0.3s ease-in`,
   }
   return (
     <button
@@ -15,7 +33,6 @@ const DarkToggleButton: React.FC = () => {
         border: "none",
         p: 1,
         outline: "inherit",
-        transition: "opacity .3s ease",
         opacity: 0.7,
         "&:hover": {
           opacity: 1,
@@ -27,21 +44,9 @@ const DarkToggleButton: React.FC = () => {
       }}
     >
       {colorMode === "default" ? (
-        <SunIcon
-          sx={{
-            width: "1.5rem",
-            height: "1.5rem",
-            color: "text",
-          }}
-        />
+        <SunIcon sx={iconSx} />
       ) : (
-        <MoonIcon
-          sx={{
-            width: "1.5rem",
-            height: "1.5rem",
-            color: "text",
-          }}
-        />
+        <MoonIcon sx={iconSx} />
       )}
     </button>
   )
