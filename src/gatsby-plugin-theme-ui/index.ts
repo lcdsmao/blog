@@ -166,7 +166,7 @@ const theme = {
       fontFamily: "body",
       lineHeight: "body",
       fontWeight: "body",
-      transition: "all .3s cubic-bezier(0.4, 0.0, 0.2, 1)",
+      transition: "color .3s ease, background-color .3s ease",
       ...styles,
     },
     ...styles,
