@@ -7,7 +7,7 @@ import CodeBlock from "../components/CodeBlock"
 import { Mdx } from "../types"
 
 const components: MDXProviderComponents = {
-  a: props => (
+  a: (props) => (
     <a
       {...props}
       sx={{
@@ -16,7 +16,7 @@ const components: MDXProviderComponents = {
       }}
     />
   ),
-  pre: props => props.children,
+  pre: (props) => props.children,
   code: CodeBlock,
 }
 

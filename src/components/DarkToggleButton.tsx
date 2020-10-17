@@ -35,7 +35,7 @@ const DarkToggleButton: React.FC = () => {
     <IconButton
       ref={buttonRef}
       aria-label={`Toggle ${colorMode === "default" ? "Dark" : "Light"}`}
-      onClick={_ => {
+      onClick={(_) => {
         setColorMode(colorMode === "default" ? "dark" : "default")
       }}
     >
