@@ -1,6 +1,5 @@
 import { PageProps, graphql } from "gatsby"
 import React from "react"
-import { Container } from "theme-ui"
 
 import App from "../components/App"
 import Article from "../components/Article"
