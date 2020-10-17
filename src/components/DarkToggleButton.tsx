@@ -1,6 +1,6 @@
 import { keyframes } from "@emotion/core"
 import { useRef } from "react"
-import { useColorMode } from "theme-ui"
+import { IconButton, useColorMode } from "theme-ui"
 
 import { MoonIcon, SunIcon } from "./icons"
 
@@ -32,15 +32,9 @@ const DarkToggleButton: React.FC = () => {
   }
 
   return (
-    <button
-      sx={{
-        background: "inherit",
-        border: "none",
-        p: 1,
-        outline: "inherit",
-      }}
+    <IconButton
       ref={buttonRef}
-      title={`Toggle ${colorMode === "default" ? "Dark" : "Light"}`}
+      aria-label={`Toggle ${colorMode === "default" ? "Dark" : "Light"}`}
       onClick={_ => {
         setColorMode(colorMode === "default" ? "dark" : "default")
       }}
@@ -50,7 +44,7 @@ const DarkToggleButton: React.FC = () => {
       ) : (
         <MoonIcon sx={iconSx} />
       )}
-    </button>
+    </IconButton>
   )
 }
 

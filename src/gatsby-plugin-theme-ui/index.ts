@@ -161,6 +161,11 @@ const theme = {
       maxWidth: 1024,
     },
   },
+  buttons: {
+    icon: {
+      outline: "none",
+    },
+  },
   styles: {
     root: {
       fontFamily: "body",
