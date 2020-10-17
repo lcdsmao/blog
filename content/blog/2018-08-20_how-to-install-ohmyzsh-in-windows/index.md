@@ -10,13 +10,13 @@ tags: ["cygwin", "zsh"]
 
 Download [cygwin installer](https://www.cygwin.com/) then execute:
 
-```
+```sh
 ./setup-x86_64.exe -q -P git,vim,curl,wget,zsh,chere
 ```
 
 2. Install [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh).
 
-```
+```sh
 git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
 ```
@@ -25,7 +25,7 @@ cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
 
 Add following line to the top of `~/.bashrc`:
 
-```
+```sh
 exec zsh
 ```
 
@@ -33,7 +33,7 @@ exec zsh
 
 Run cygwin as administrator and execute:
 
-```
+```sh
 chere -i -t mintty -s bash
 ```
 
@@ -49,7 +49,7 @@ C:\cygwin64\bin\bash.exe --login -i
 
 Make it executable:
 
-```
+```sh
 chmod +x Cygwin-integrated.bat
 ```
 

@@ -3,6 +3,7 @@ import { Link } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import React from "react"
 
+import CodeBlock from "../components/CodeBlock"
 import { Mdx } from "../types"
 
 type Props = {
@@ -60,6 +61,8 @@ const Article: React.FC<Props> = ({ single, data }) => {
                 }}
               />
             ),
+            pre: props => props.children,
+            code: CodeBlock,
           }}
         >
           <MDXRenderer>{data.body}</MDXRenderer>

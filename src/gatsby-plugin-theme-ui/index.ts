@@ -3,7 +3,7 @@ const colors = {
   background: "#fafaf9",
   primary: "#e63b19",
   secondary: "#cc4c33",
-  highlight: "#f0dfdb",
+  highlight: "#e2bb9a",
   muted: "#f3eeed",
   prismVariable: "#2e1f7a",
   prismComment: "#996f66",
