@@ -13,7 +13,6 @@ const Header: React.FC = () => {
         alignItems: "baseline",
         justifyContent: "space-between",
         marginTop: [2, 3],
-        gap: 3,
         a: {
           variant: "textStyles.heading",
         },
@@ -23,8 +22,8 @@ const Header: React.FC = () => {
         sx={{
           display: "flex",
           flexWrap: "wrap",
-          gap: "inherit",
           alignItems: "inherit",
+          marginRight: 3,
         }}
       >
         <Link
@@ -32,11 +31,17 @@ const Header: React.FC = () => {
           sx={{
             fontSize: 4,
             width: ["100%", "auto"],
+            marginRight: 3,
           }}
         >
           {metadata.title}
         </Link>
-        <a href={`https://github.com/${metadata.social.github}`}>Github</a>
+        <a
+          sx={{ marginRight: 3 }}
+          href={`https://github.com/${metadata.social.github}`}
+        >
+          Github
+        </a>
         <a href={`https://twitter.com/${metadata.social.twitter}`}>Twitter</a>
       </div>
       <DarkToggleButton />
