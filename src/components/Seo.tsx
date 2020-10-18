@@ -3,8 +3,6 @@ import React from "react"
 import { Helmet } from "react-helmet"
 import { useSiteMetadata } from "../hooks/UseSiteMetadata"
 
-import { SiteMetadata } from "../types"
-
 type Props = {
   location: PageProps["location"]
   title?: string

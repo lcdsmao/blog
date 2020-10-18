@@ -4,11 +4,7 @@ import { useSiteMetadata } from "../hooks/UseSiteMetadata"
 
 import DarkToggleButton from "./DarkToggleButton"
 
-type Props = {
-  isHome: boolean
-}
-
-const Header: React.FC<Props> = ({ isHome }) => {
+const Header: React.FC = () => {
   const metadata = useSiteMetadata()
   return (
     <div

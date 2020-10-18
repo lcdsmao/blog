@@ -1,7 +1,6 @@
 import { PageProps, graphql } from "gatsby"
 import React from "react"
 
-import App from "../components/App"
 import Article from "../components/Article"
 import Pager from "../components/Pager"
 import Seo from "../components/Seo"
@@ -22,7 +21,7 @@ const BlogPostTemplate: React.FC<Props> = ({ location, data, pageContext }) => {
   const article = data.mdx
   const { previous, next } = pageContext
   return (
-    <App location={location}>
+    <>
       <Seo
         location={location}
         title={data.mdx.frontmatter.title}
@@ -31,7 +30,7 @@ const BlogPostTemplate: React.FC<Props> = ({ location, data, pageContext }) => {
       />
       <Article single data={article} />
       <Pager previous={previous} next={next} />
-    </App>
+    </>
   )
 }
 

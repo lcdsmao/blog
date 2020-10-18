@@ -1,19 +1,12 @@
 import { MDXProvider } from "@mdx-js/react"
-import { PageProps } from "gatsby"
 import React from "react"
 import { Container } from "theme-ui"
-import { useSiteMetadata } from "../hooks/UseSiteMetadata"
 
 import Footer from "./Footer"
 import Header from "./Header"
 import { mdxComponents } from "./MDXComponents"
 
-type Props = {
-  location: PageProps["location"]
-}
-
-const App: React.FC<Props> = ({ location, children }) => {
-  const metadata = useSiteMetadata()
+const App: React.FC = ({ children }) => {
   return (
     <div
       sx={{
@@ -27,7 +20,7 @@ const App: React.FC<Props> = ({ location, children }) => {
           flex: "1 0 auto",
         }}
       >
-        <Header isHome={location.pathname === "/"} metadata={metadata} />
+        <Header />
         <main
           sx={{
             marginTop: 4,
@@ -36,7 +29,7 @@ const App: React.FC<Props> = ({ location, children }) => {
           <MDXProvider components={mdxComponents}>{children}</MDXProvider>
         </main>
       </Container>
-      <Footer metadata={metadata} />
+      <Footer />
     </div>
   )
 }

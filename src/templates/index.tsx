@@ -1,7 +1,6 @@
 import { PageProps, graphql } from "gatsby"
 import React from "react"
 
-import App from "../components/App"
 import Article from "../components/Article"
 import Pagination from "../components/Pagination"
 import Seo from "../components/Seo"
@@ -29,7 +28,7 @@ type Props = PageProps<
 const Index: React.FC<Props> = ({ data, location, pageContext }) => {
   const articls = data.allMdx.edges
   return (
-    <App location={location}>
+    <>
       <Seo location={location} />
       {articls.map(({ node }) => (
         <Article key={node.fields.slug} single={false} data={node} />
@@ -41,7 +40,7 @@ const Index: React.FC<Props> = ({ data, location, pageContext }) => {
         previous={pageContext.previousPagePath || null}
         next={pageContext.nextPagePath || null}
       />
-    </App>
+    </>
   )
 }
 

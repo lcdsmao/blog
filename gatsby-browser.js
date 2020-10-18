@@ -1,5 +1,8 @@
+import React from "react"
 import firebase from "firebase/app"
 import "firebase/analytics"
+
+import App from "./src/components/App"
 
 export const onClientEntry = () => {
   const firebaseConfig = {
@@ -25,3 +28,5 @@ export const onServiceWorkerUpdateReady = () => {
     window.location.reload()
   }
 }
+
+export const wrapPageElement = ({ element }) => <App>{element}</App>
