@@ -1,24 +1,8 @@
-import { MDXProvider, MDXProviderComponents } from "@mdx-js/react"
 import { Link } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import React from "react"
 
-import CodeBlock from "../components/CodeBlock"
 import { Mdx } from "../types"
-
-const components: MDXProviderComponents = {
-  a: (props) => (
-    <a
-      {...props}
-      sx={{
-        color: "secondary",
-        textDecoration: "underline",
-      }}
-    />
-  ),
-  pre: (props) => props.children,
-  code: CodeBlock,
-}
 
 type Props = {
   single: Boolean
@@ -63,13 +47,7 @@ const Article: React.FC<Props> = ({ single, data }) => {
         <time dateTime={data.frontmatter.date}>{data.frontmatter.date}</time>
       </p>
 
-      {single ? (
-        <MDXProvider components={components}>
-          <MDXRenderer>{data.body}</MDXRenderer>
-        </MDXProvider>
-      ) : (
-        <p>{data.excerpt}</p>
-      )}
+      {single ? <MDXRenderer>{data.body}</MDXRenderer> : <p>{data.excerpt}</p>}
     </article>
   )
 }
