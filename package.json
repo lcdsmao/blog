@@ -15,6 +15,7 @@
     "@emotion/core": "^10.0.35",
     "@mdx-js/mdx": "^1.6.18",
     "@mdx-js/react": "^1.6.18",
+    "@theme-ui/style-guide": "^0.3.0",
     "firebase": "^7.24.0",
     "gatsby": "^2.24.80",
     "gatsby-awesome-pagination": "^0.3.6",
