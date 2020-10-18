@@ -41,6 +41,7 @@ const Article: React.FC<Props> = ({ single, data }) => {
       <p
         sx={{
           opacity: 0.5,
+          marginTop: 2,
           marginBottom: single ? 4 : 0,
         }}
       >
