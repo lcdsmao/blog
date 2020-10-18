@@ -21,7 +21,7 @@ const Seo: React.FC<Props> = ({ location, title, description, article }) => {
   const seo = {
     title: title || defaultTitle,
     description: description || defaultDescription,
-    image: null, // TODO
+    image: `${siteUrl}/lcdsmaodev.jpg`,
     url: `${siteUrl}${location.pathname}`,
   }
   return (
