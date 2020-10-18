@@ -5,13 +5,10 @@ import App from "../components/App"
 import Article from "../components/Article"
 import Pagination from "../components/Pagination"
 import Seo from "../components/Seo"
-import { Mdx, SiteMetadata } from "../types"
+import { Mdx } from "../types"
 
 type Props = PageProps<
   {
-    site: {
-      siteMetadata: SiteMetadata
-    }
     allMdx: {
       edges: {
         node: Mdx
@@ -30,11 +27,10 @@ type Props = PageProps<
 >
 
 const Index: React.FC<Props> = ({ data, location, pageContext }) => {
-  const metadata = data.site.siteMetadata
   const articls = data.allMdx.edges
   return (
-    <App location={location} metadata={metadata}>
-      <Seo location={location} metadata={data.site.siteMetadata} />
+    <App location={location}>
+      <Seo location={location} />
       {articls.map(({ node }) => (
         <Article key={node.fields.slug} single={false} data={node} />
       ))}
@@ -53,17 +49,6 @@ export default Index
 
 export const query = graphql`
   query($skip: Int!, $limit: Int!) {
-    site {
-      siteMetadata {
-        title
-        description
-        siteUrl
-        social {
-          twitter
-          github
-        }
-      }
-    }
     allMdx(
       sort: { order: DESC, fields: [frontmatter___date] }
       skip: $skip

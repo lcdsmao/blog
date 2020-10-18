@@ -1,31 +1,25 @@
 import { PageProps } from "gatsby"
 import React from "react"
 import { Helmet } from "react-helmet"
+import { useSiteMetadata } from "../hooks/UseSiteMetadata"
 
 import { SiteMetadata } from "../types"
 
 type Props = {
   location: PageProps["location"]
-  metadata: SiteMetadata
   title?: string
   description?: string
   article?: boolean
 }
 
-const Seo: React.FC<Props> = ({
-  location,
-  metadata,
-  title,
-  description,
-  article,
-}) => {
+const Seo: React.FC<Props> = ({ location, title, description, article }) => {
   const {
     title: defaultTitle,
     description: defaultDescription,
     titleTemplate,
     siteUrl,
     social,
-  } = metadata
+  } = useSiteMetadata()
   const seo = {
     title: title || defaultTitle,
     description: description || defaultDescription,

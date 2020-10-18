@@ -1,15 +1,15 @@
 import { Link } from "gatsby"
 import React from "react"
+import { useSiteMetadata } from "../hooks/UseSiteMetadata"
 
-import { SiteMetadata } from "../types"
 import DarkToggleButton from "./DarkToggleButton"
 
 type Props = {
   isHome: boolean
-  metadata: SiteMetadata
 }
 
-const Header: React.FC<Props> = ({ isHome, metadata }) => {
+const Header: React.FC<Props> = ({ isHome }) => {
+  const metadata = useSiteMetadata()
   return (
     <div
       sx={{

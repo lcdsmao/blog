@@ -2,18 +2,18 @@ import { MDXProvider } from "@mdx-js/react"
 import { PageProps } from "gatsby"
 import React from "react"
 import { Container } from "theme-ui"
+import { useSiteMetadata } from "../hooks/UseSiteMetadata"
 
-import { SiteMetadata } from "../types"
 import Footer from "./Footer"
 import Header from "./Header"
 import { mdxComponents } from "./MDXComponents"
 
 type Props = {
   location: PageProps["location"]
-  metadata: SiteMetadata
 }
 
-const App: React.FC<Props> = ({ location, metadata, children }) => {
+const App: React.FC<Props> = ({ location, children }) => {
+  const metadata = useSiteMetadata()
   return (
     <div
       sx={{

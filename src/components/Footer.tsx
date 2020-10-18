@@ -1,14 +1,10 @@
 import { graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
 import React from "react"
+import { useSiteMetadata } from "../hooks/UseSiteMetadata"
 
-import { SiteMetadata } from "../types"
-
-type Props = {
-  metadata: SiteMetadata
-}
-
-const Footer: React.FC<Props> = ({ metadata }) => {
+const Footer: React.FC = () => {
+  const metadata = useSiteMetadata()
   const data = useStaticQuery(
     graphql`
       query {
