@@ -1,6 +1,6 @@
-import { graphql, useStaticQuery } from "gatsby"
+import { graphql, navigate, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
-import React from "react"
+import React, { useMemo, useState } from "react"
 import { useSiteMetadata } from "../hooks/UseSiteMetadata"
 
 const Footer: React.FC = () => {
@@ -18,10 +18,13 @@ const Footer: React.FC = () => {
       }
     `
   )
+  const [themeCount, setThemeCount] = useState(0)
+  const canNaigateToTheme = useMemo(() => themeCount >= 10, [themeCount])
   return (
     <div
       sx={{
         display: "flex",
+        position: "relative",
         flexDirection: "column",
         alignItems: "center",
         marginTop: [3, 4],
@@ -45,6 +48,23 @@ const Footer: React.FC = () => {
       >
         © 2020 {metadata.title}
       </div>
+      <div
+        sx={{
+          position: "absolute",
+          width: "48px",
+          top: 0,
+          bottom: 0,
+          right: 0,
+        }}
+        onClick={() => {
+          if (canNaigateToTheme) {
+            setThemeCount(0)
+            navigate("/theme")
+          } else {
+            setThemeCount(themeCount + 1)
+          }
+        }}
+      />
     </div>
   )
 }
