@@ -37,7 +37,10 @@ const Header: React.FC = () => {
           {metadata.title}
         </Link>
         <a
-          sx={{ marginRight: 3 }}
+          sx={{
+            marginRight: 3,
+            marginTop: 2,
+          }}
           href={`https://github.com/${metadata.social.github}`}
         >
           Github
