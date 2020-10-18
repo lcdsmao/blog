@@ -60,6 +60,13 @@ module.exports = {
         ],
       },
     },
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [`Nunito`, `Roboto Mono`],
+        display: "swap",
+      },
+    },
     `gatsby-plugin-theme-ui`,
   ],
 }
