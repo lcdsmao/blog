@@ -1,7 +1,7 @@
 import { PageProps, graphql } from "gatsby"
 import Img, { FluidObject } from "gatsby-image"
 import React from "react"
-import { Container } from "theme-ui"
+import Seo from "../components/Seo"
 
 type Props = PageProps<{
   file: {
@@ -11,27 +11,26 @@ type Props = PageProps<{
   }
 }>
 
-const NotFound: React.FC<Props> = ({ data }) => {
+const NotFound: React.FC<Props> = ({ location, data }) => {
   return (
     <>
-      <Container>
-        <h1 sx={{ textAlign: "center" }}>404 Not Found!</h1>
-        <div
+      <Seo location={location} title="404 Not Found" />
+      <h1 sx={{ textAlign: "center" }}>404 Not Found!</h1>
+      <div
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
+        <Img
+          fluid={data.file.childImageSharp.fluid}
+          title="The Scream"
           sx={{
-            display: "flex",
-            justifyContent: "center",
+            flex: "1 1 auto",
+            maxWidth: [240, 360, 480],
           }}
-        >
-          <Img
-            fluid={data.file.childImageSharp.fluid}
-            title="The Scream"
-            sx={{
-              flex: "1 1 auto",
-              maxWidth: [240, 360, 480],
-            }}
-          />
-        </div>
-      </Container>
+        />
+      </div>
     </>
   )
 }
