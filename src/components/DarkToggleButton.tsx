@@ -5,6 +5,10 @@ import { IconButton, useColorMode } from "theme-ui"
 const sunProp = {
   svg: {
     transform: "rotate(180deg)",
+    opacity: 1,
+    from: {
+      opacity: 0,
+    },
   },
   mask: {
     cx: "100%",
@@ -29,6 +33,10 @@ const sunProp = {
 const moonProp = {
   svg: {
     transform: "rotate(45deg)",
+    opacity: 1,
+    from: {
+      opacity: 0,
+    },
   },
   mask: {
     cx: "50%",
@@ -54,17 +62,6 @@ const DarkToggleButton: React.FC = () => {
   const [colorMode, setColorMode] = useColorMode()
   const { svg, mask, centerCircle, surroundCircle } =
     colorMode === "default" ? sunProp : moonProp
-  const surroundCircleProps = useSprings(
-    8,
-    [...Array(8).keys()].map((i) => {
-      return {
-        ...surroundCircle,
-        transformOrigin: "center",
-        delay: colorMode === "default" ? i * 50 : 0,
-        config: config.stiff,
-      }
-    })
-  )
   const svgProps = useSpring({
     ...svg,
     config: springConfig,
@@ -77,6 +74,17 @@ const DarkToggleButton: React.FC = () => {
     ...centerCircle,
     config: springConfig,
   })
+  const surroundCircleProps = useSprings(
+    8,
+    [...Array(8).keys()].map((i) => {
+      return {
+        ...surroundCircle,
+        transformOrigin: "center",
+        delay: colorMode === "default" ? i * 50 : 0,
+        config: config.stiff,
+      }
+    })
+  )
   return (
     <IconButton
       aria-label={`Toggle ${colorMode === "default" ? "Dark" : "Light"}`}
