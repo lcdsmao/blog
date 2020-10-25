@@ -50,6 +50,8 @@ const styles = {
   a: {
     color: "text",
     textDecoration: "none",
+    overflowWrap: "break-word",
+    wordWrap: "break-word",
     "&:hover": {
       color: "primary",
     },
@@ -84,6 +86,8 @@ const styles = {
     bg: "muted",
     px: 1,
     py: 1,
+    overflowWrap: "break-word",
+    wordWrap: "break-word",
   },
   inlineCode: {
     fontFamily: "monospace",
