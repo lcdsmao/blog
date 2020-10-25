@@ -5,6 +5,7 @@ const colors = {
   secondary: "#cc4c33",
   highlight: "#e2bb9a",
   muted: "#f3eeed",
+  scrollbarThumb: "#cccccc",
   prismVariable: "#2e1f7a",
   prismComment: "#996f66",
   modes: {
@@ -15,6 +16,7 @@ const colors = {
       secondary: "#FF5083",
       muted: "#1F1F1F",
       highlight: "#8F5B78",
+      scrollbarThumb: "#696969",
       prismVariable: "#BB86FC",
       prismComment: "#999",
     },
@@ -171,9 +173,24 @@ const theme = {
       lineHeight: "body",
       fontWeight: "body",
       transition: "color .3s ease, background-color .3s ease",
+      "@media (orientation: landscape)": {
+        "::-webkit-scrollbar": {
+          width: 12,
+          bg: "muted",
+        },
+        "::-webkit-scrollbar-thumb": {
+          borderRadius: 5,
+          bg: "scrollbarThumb",
+          border: "2px solid",
+          borderColor: "muted",
+        },
+        "::-webkit-scrollbar-track": {
+          borderRadius: 3,
+          bg: "transparent",
+        },
+      },
       ...styles,
     },
-    ...styles,
   },
   prism: {
     ".comment,.prolog,.doctype,.cdata,.punctuation,.operator,.entity,.url": {
