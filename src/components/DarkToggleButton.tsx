@@ -1,5 +1,5 @@
 import React from "react"
-import { useSpring, animated, config } from "react-spring"
+import { useSpring, useSprings, animated, config } from "react-spring"
 import { IconButton, useColorMode } from "theme-ui"
 
 const sunProp = {
@@ -17,6 +17,12 @@ const sunProp = {
   surroundCircle: {
     transform: "scale(1)",
     opacity: 1,
+    from: {
+      // Bug?
+      // If no from value then only the first is valid in the first renderering.
+      transform: "scale(1)",
+      opacity: 1,
+    },
   },
 }
 
@@ -48,6 +54,17 @@ const DarkToggleButton: React.FC = () => {
   const [colorMode, setColorMode] = useColorMode()
   const { svg, mask, centerCircle, surroundCircle } =
     colorMode === "default" ? sunProp : moonProp
+  const surroundCircleProps = useSprings(
+    8,
+    [...Array(8).keys()].map((i) => {
+      return {
+        ...surroundCircle,
+        transformOrigin: "center",
+        delay: colorMode === "default" ? i * 50 : 0,
+        config: config.stiff,
+      }
+    })
+  )
   const svgProps = useSpring({
     ...svg,
     config: springConfig,
@@ -60,13 +77,6 @@ const DarkToggleButton: React.FC = () => {
     ...centerCircle,
     config: springConfig,
   })
-  const surroundCircleProps = [...Array(8).keys()].map((i) =>
-    useSpring({
-      ...surroundCircle,
-      delay: colorMode === "default" ? i * 50 : 0,
-      config: config.stiff,
-    })
-  )
   return (
     <IconButton
       aria-label={`Toggle ${colorMode === "default" ? "Dark" : "Light"}`}
@@ -103,21 +113,19 @@ const DarkToggleButton: React.FC = () => {
           // @ts-ignore
           style={centerCircleProps}
         />
-        {[...Array(8).keys()].map((i) => {
+        {surroundCircleProps.map((props, i) => {
           const radians = Math.PI / 2 - (i * Math.PI) / 4
           const cx = 12 + 9 * Math.cos(radians)
           const cy = 12 - 9 * Math.sin(radians)
           return (
             <animated.circle
-              key={i}
+              key={i.toString()}
               cx={cx}
               cy={cy}
               r="1.5"
               fill="currentColor"
-              style={{
-                transformOrigin: "center",
-                ...surroundCircleProps[i],
-              }}
+              // @ts-ignore
+              style={props}
             />
           )
         })}
