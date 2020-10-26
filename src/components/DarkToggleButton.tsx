@@ -62,6 +62,10 @@ const DarkToggleButton: React.FC = () => {
   const [colorMode, setColorMode] = useColorMode()
   const { svg, mask, centerCircle, surroundCircle } =
     colorMode === "default" ? sunProp : moonProp
+  const [scaleProps, setScale] = useSpring(() => ({
+    transform: "scale(0.9)",
+    config: springConfig,
+  }))
   const svgProps = useSpring({
     ...svg,
     config: springConfig,
@@ -88,56 +92,60 @@ const DarkToggleButton: React.FC = () => {
   return (
     <IconButton
       aria-label={`Toggle ${colorMode === "default" ? "Dark" : "Light"}`}
-      onClick={(_) => {
+      onMouseEnter={() => setScale({ transform: "scale(1)" })}
+      onMouseLeave={() => setScale({ transform: "scale(0.9)" })}
+      onClick={() => {
         setColorMode(colorMode === "default" ? "dark" : "default")
       }}
     >
-      <animated.svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        width="1.5rem"
-        height="1.5rem"
-        color="text"
-        fill="none"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        style={svgProps}
-      >
-        <mask id="moon-mask">
-          <rect x="0" y="0" width="100%" height="100%" fill="white" />
-          <animated.circle
-            fill="black"
-            // @ts-ignore
-            style={maskProps}
-          />
-        </mask>
-        <animated.circle
-          cx="12"
-          cy="12"
-          r="9"
-          fill="currentColor"
-          mask="url(#moon-mask)"
-          // @ts-ignore
-          style={centerCircleProps}
-        />
-        {surroundCircleProps.map((props, i) => {
-          const radians = Math.PI / 2 - (i * Math.PI) / 4
-          const cx = 12 + 9 * Math.cos(radians)
-          const cy = 12 - 9 * Math.sin(radians)
-          return (
+      <animated.div style={scaleProps}>
+        <animated.svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          width="1.5rem"
+          height="1.5rem"
+          color="text"
+          fill="none"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          style={svgProps}
+        >
+          <mask id="moon-mask">
+            <rect x="0" y="0" width="100%" height="100%" fill="white" />
             <animated.circle
-              key={i.toString()}
-              cx={cx}
-              cy={cy}
-              r="1.5"
-              fill="currentColor"
+              fill="black"
               // @ts-ignore
-              style={props}
+              style={maskProps}
             />
-          )
-        })}
-      </animated.svg>
+          </mask>
+          <animated.circle
+            cx="12"
+            cy="12"
+            r="9"
+            fill="currentColor"
+            mask="url(#moon-mask)"
+            // @ts-ignore
+            style={centerCircleProps}
+          />
+          {surroundCircleProps.map((props, i) => {
+            const radians = Math.PI / 2 - (i * Math.PI) / 4
+            const cx = 12 + 9 * Math.cos(radians)
+            const cy = 12 - 9 * Math.sin(radians)
+            return (
+              <animated.circle
+                key={i.toString()}
+                cx={cx}
+                cy={cy}
+                r="1.5"
+                fill="currentColor"
+                // @ts-ignore
+                style={props}
+              />
+            )
+          })}
+        </animated.svg>
+      </animated.div>
     </IconButton>
   )
 }
