@@ -163,7 +163,7 @@ const theme = {
   layout: {
     container: {
       p: 3,
-      maxWidth: 1024,
+      maxWidth: "80ch",
     },
   },
   buttons: {

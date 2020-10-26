@@ -4,50 +4,65 @@ import { useSiteMetadata } from "../hooks/UseSiteMetadata"
 
 import DarkToggleButton from "./DarkToggleButton"
 
-const Header: React.FC = () => {
+const Header: React.FC = ({ ...rest }) => {
   const metadata = useSiteMetadata()
   return (
     <div
       sx={{
-        display: "flex",
-        alignItems: "baseline",
-        justifyContent: "space-between",
-        marginTop: [2, 3],
-        a: {
-          variant: "textStyles.heading",
-        },
+        position: "sticky",
+        top: 0,
+        zIndex: 1,
+        background: (theme) =>
+          `linear-gradient(180deg, ${theme.colors.background} 60%, transparent 100%)`,
       }}
+      {...rest}
     >
       <div
         sx={{
           display: "flex",
-          flexWrap: "wrap",
-          alignItems: "inherit",
-          marginRight: 3,
+          maxWidth: "80ch",
+          mx: "auto",
+          alignItems: "baseline",
+          justifyContent: "space-between",
+          paddingTop: 3,
+          paddingBottom: [4, 5],
+          px: 3,
+          a: {
+            variant: "textStyles.heading",
+          },
         }}
       >
-        <Link
-          to="/"
+        <div
           sx={{
-            fontSize: 4,
-            width: ["100%", "auto"],
+            display: "flex",
+            flexWrap: "wrap",
+            alignItems: "inherit",
             marginRight: 3,
           }}
         >
-          {metadata.title}
-        </Link>
-        <a
-          sx={{
-            marginRight: 3,
-            marginTop: 2,
-          }}
-          href={`https://github.com/${metadata.social.github}`}
-        >
-          Github
-        </a>
-        <a href={`https://twitter.com/${metadata.social.twitter}`}>Twitter</a>
+          <Link
+            to="/"
+            sx={{
+              fontSize: 4,
+              width: ["100%", "auto"],
+              marginRight: 4,
+            }}
+          >
+            {metadata.title}
+          </Link>
+          <a
+            sx={{
+              marginRight: 3,
+              marginTop: 2,
+            }}
+            href={`https://github.com/${metadata.social.github}`}
+          >
+            Github
+          </a>
+          <a href={`https://twitter.com/${metadata.social.twitter}`}>Twitter</a>
+        </div>
+        <DarkToggleButton />
       </div>
-      <DarkToggleButton />
     </div>
   )
 }

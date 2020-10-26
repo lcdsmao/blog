@@ -15,17 +15,13 @@ const App: React.FC = ({ children }) => {
         minHeight: "100vh",
       }}
     >
+      <Header />
       <Container
         sx={{
           flex: "1 0 auto",
         }}
       >
-        <Header />
-        <main
-          sx={{
-            marginTop: 4,
-          }}
-        >
+        <main>
           <MDXProvider components={mdxComponents}>{children}</MDXProvider>
         </main>
       </Container>
