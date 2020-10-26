@@ -162,7 +162,7 @@ const theme = {
   },
   layout: {
     container: {
-      p: 3,
+      px: 3,
       maxWidth: "80ch",
     },
   },
@@ -176,7 +176,7 @@ const theme = {
       fontFamily: "body",
       lineHeight: "body",
       fontWeight: "body",
-      transition: "color .3s ease, background-color .3s ease",
+      transition: "color .3s ease, background .3s ease",
       "@media (orientation: landscape)": {
         "::-webkit-scrollbar": {
           width: 12,
