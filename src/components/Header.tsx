@@ -50,16 +50,6 @@ const Header: React.FC = ({ ...rest }) => {
           >
             {metadata.title}
           </Link>
-          <a
-            sx={{
-              marginRight: 3,
-              marginTop: 2,
-            }}
-            href={`https://github.com/${metadata.social.github}`}
-          >
-            Github
-          </a>
-          <a href={`https://twitter.com/${metadata.social.twitter}`}>Twitter</a>
         </div>
         <DarkToggleButton />
       </div>

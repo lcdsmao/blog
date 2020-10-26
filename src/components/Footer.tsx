@@ -2,6 +2,8 @@ import { graphql, navigate, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
 import React, { useMemo, useState } from "react"
 import { useSiteMetadata } from "../hooks/UseSiteMetadata"
+import GitHubIcon from "./icons/GithubIcon"
+import TwitterIcon from "./icons/TwitterIcon"
 
 const Footer: React.FC = () => {
   const metadata = useSiteMetadata()
@@ -40,6 +42,21 @@ const Footer: React.FC = () => {
           marginBottom: 3,
         }}
       />
+      <div
+        sx={{
+          marginBottom: 2,
+          "& > a": {
+            mx: 2,
+          },
+        }}
+      >
+        <a href={`https://twitter.com/${metadata.social.twitter}`}>
+          <TwitterIcon size={20} />
+        </a>
+        <a href={`https://github.com/${metadata.social.github}`}>
+          <GitHubIcon size={20} />
+        </a>
+      </div>
       <div
         sx={{
           fontWeight: "bold",
