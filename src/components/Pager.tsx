@@ -8,13 +8,13 @@ type Props = {
   next: Mdx | null
 }
 
-const Pager: React.FC<Props> = ({ previous, next }) => {
+const Pager: React.FC<Props> = ({ previous, next, ...rest }) => {
   return (
     <nav
       sx={{
         display: "flex",
-        marginTop: 5,
       }}
+      {...rest}
     >
       <PageTurnLink
         type={"previous"}

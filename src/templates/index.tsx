@@ -31,7 +31,12 @@ const Index: React.FC<Props> = ({ data, location, pageContext }) => {
     <>
       <Seo location={location} />
       {articls.map(({ node }) => (
-        <Article key={node.fields.slug} single={false} data={node} />
+        <Article
+          key={node.fields.slug}
+          single={false}
+          data={node}
+          sx={{ marginBottom: 5 }}
+        />
       ))}
 
       <Pagination

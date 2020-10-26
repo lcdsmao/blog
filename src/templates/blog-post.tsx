@@ -29,7 +29,7 @@ const BlogPostTemplate: React.FC<Props> = ({ location, data, pageContext }) => {
         article={true}
       />
       <Article single data={article} />
-      <Pager previous={previous} next={next} />
+      <Pager previous={previous} next={next} sx={{ marginTop: 4 }} />
     </>
   )
 }

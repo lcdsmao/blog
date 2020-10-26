@@ -9,13 +9,9 @@ type Props = {
   data: Mdx
 }
 
-const Article: React.FC<Props> = ({ single, data }) => {
+const Article: React.FC<Props> = ({ single, data, ...rest }) => {
   return (
-    <article
-      sx={{
-        marginBottom: 4,
-      }}
-    >
+    <article {...rest}>
       <header>
         {single ? (
           <h1
@@ -49,6 +45,28 @@ const Article: React.FC<Props> = ({ single, data }) => {
       </p>
 
       {single ? <MDXRenderer>{data.body}</MDXRenderer> : <p>{data.excerpt}</p>}
+
+      <div
+        sx={{
+          display: "flex",
+          marginTop: single ? 4 : 0,
+        }}
+      >
+        {data.frontmatter.tags.map((tag) => (
+          <Link
+            sx={{
+              marginRight: 2,
+              opacity: 0.5,
+              "&:hover": {
+                opacity: 1,
+              },
+            }}
+            to="/404"
+          >
+            #{tag}
+          </Link>
+        ))}
+      </div>
     </article>
   )
 }
