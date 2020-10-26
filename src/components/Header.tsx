@@ -1,5 +1,6 @@
 import { Link } from "gatsby"
 import React from "react"
+import { Container } from "theme-ui"
 import { useSiteMetadata } from "../hooks/UseSiteMetadata"
 
 import DarkToggleButton from "./DarkToggleButton"
@@ -13,15 +14,13 @@ const Header: React.FC = ({ ...rest }) => {
         top: 0,
         zIndex: 1,
         background: (theme) =>
-          `linear-gradient(180deg, ${theme.colors.background} 60%, transparent 100%)`,
+          `linear-gradient(180deg, ${theme.colors.background} 70%, transparent 100%)`,
       }}
       {...rest}
     >
-      <div
+      <Container
         sx={{
           display: "flex",
-          maxWidth: "80ch",
-          mx: "auto",
           alignItems: "baseline",
           justifyContent: "space-between",
           paddingTop: 3,
@@ -52,7 +51,7 @@ const Header: React.FC = ({ ...rest }) => {
           </Link>
         </div>
         <DarkToggleButton />
-      </div>
+      </Container>
     </div>
   )
 }
