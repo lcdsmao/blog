@@ -54,16 +54,20 @@ const Article: React.FC<Props> = ({ single, data, ...rest }) => {
       >
         {data.frontmatter.tags.map((tag) => (
           <Link
+            key={tag}
+            to="/404"
             sx={{
               marginRight: 2,
               opacity: 0.5,
               "&:hover": {
                 opacity: 1,
               },
+              "&::before": {
+                content: '"#"',
+              },
             }}
-            to="/404"
           >
-            #{tag}
+            {tag}
           </Link>
         ))}
       </div>
