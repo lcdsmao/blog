@@ -182,22 +182,6 @@ const theme = {
       lineHeight: "body",
       fontWeight: "body",
       transition: "color .3s ease, background .3s ease",
-      "@media (orientation: landscape)": {
-        "::-webkit-scrollbar": {
-          width: 12,
-          bg: "muted",
-        },
-        "::-webkit-scrollbar-thumb": {
-          borderRadius: 5,
-          bg: "scrollbarThumb",
-          border: "2px solid",
-          borderColor: "muted",
-        },
-        "::-webkit-scrollbar-track": {
-          borderRadius: 3,
-          bg: "transparent",
-        },
-      },
       ...styles,
     },
   },
