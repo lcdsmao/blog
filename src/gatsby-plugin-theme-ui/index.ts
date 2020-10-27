@@ -56,6 +56,11 @@ const styles = {
       color: "primary",
     },
   },
+  ul: {
+    listStyle: "none",
+    m: 0,
+    p: 0,
+  },
   blockquote: {
     bg: "highlight",
     borderRadius: "4px",

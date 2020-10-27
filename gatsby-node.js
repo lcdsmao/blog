@@ -23,6 +23,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
   const blogPostComponent = path.resolve("./src/templates/blog-post.tsx")
   const indexComponent = path.resolve("./src/templates/index.tsx")
+  const tagComponent = path.resolve("./src/templates/tag.tsx")
 
   const result = await graphql(`
     query {
@@ -36,6 +37,9 @@ exports.createPages = async ({ graphql, actions }) => {
               title
             }
           }
+        }
+        group(field: frontmatter___tags) {
+          tag: fieldValue
         }
       }
     }
@@ -70,5 +74,16 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     },
     component: indexComponent,
+  })
+
+  const tags = result.data.allMdx.group
+  tags.forEach(({ tag }) => {
+    createPage({
+      path: `/tag/${tag}`,
+      component: tagComponent,
+      context: {
+        tag: `${tag}`,
+      },
+    })
   })
 }

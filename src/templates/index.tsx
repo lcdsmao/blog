@@ -26,11 +26,11 @@ type Props = PageProps<
 >
 
 const Index: React.FC<Props> = ({ data, location, pageContext }) => {
-  const articls = data.allMdx.edges
+  const articles = data.allMdx.edges
   return (
     <>
       <Seo location={location} />
-      {articls.map(({ node }) => (
+      {articles.map(({ node }) => (
         <Article
           key={node.fields.slug}
           single={false}

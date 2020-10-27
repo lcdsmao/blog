@@ -55,7 +55,7 @@ const Article: React.FC<Props> = ({ single, data, ...rest }) => {
         {data.frontmatter.tags.map((tag) => (
           <Link
             key={tag}
-            to="/404"
+            to={`/tag/${tag}`}
             sx={{
               marginRight: 2,
               opacity: 0.5,
