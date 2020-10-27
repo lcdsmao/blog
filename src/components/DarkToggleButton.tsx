@@ -12,8 +12,8 @@ const sunProp = {
   },
   mask: {
     cx: "100%",
-    cy: "0",
-    r: "3",
+    cy: 0,
+    r: 3,
   },
   centerCircle: {
     r: 5,
@@ -40,8 +40,8 @@ const moonProp = {
   },
   mask: {
     cx: "50%",
-    cy: "3",
-    r: "9",
+    cy: 3,
+    r: 9,
   },
   centerCircle: {
     r: 9,
@@ -104,25 +104,28 @@ const DarkToggleButton: React.FC = () => {
           viewBox="0 0 24 24"
           width="1.5rem"
           height="1.5rem"
-          color="text"
           fill="none"
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
           style={svgProps}
+          sx={{
+            color: "text",
+          }}
         >
-          <mask id="moon-mask">
-            <rect x="0" y="0" width="100%" height="100%" fill="white" />
-            <animated.circle
-              fill="black"
-              // @ts-ignore
-              style={maskProps}
-            />
-          </mask>
+          <defs>
+            <mask id="moon-mask">
+              <rect x="0" y="0" width="100%" height="100%" fill="white" />
+              <animated.circle
+                fill="black"
+                // @ts-ignore
+                style={maskProps}
+              />
+            </mask>
+          </defs>
           <animated.circle
             cx="12"
             cy="12"
-            r="9"
             fill="currentColor"
             mask="url(#moon-mask)"
             // @ts-ignore
