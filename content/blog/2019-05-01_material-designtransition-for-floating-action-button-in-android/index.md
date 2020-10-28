@@ -1,5 +1,5 @@
 ---
-title: "Material Design - Transition for Floating Action Button in Android"
+title: "Material Design - Transition for Floating Action Button in Android"
 date: "2019-05-01"
 tags: ["android", "material design", "animation"]
 ---

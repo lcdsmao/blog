@@ -1,5 +1,5 @@
 ---
-title: "Material Design — Custom Alert Dialog"
+title: "Material Design - Custom Alert Dialog"
 date: "2019-06-19"
 tags: ["android", "material design", "theme"]
 ---
