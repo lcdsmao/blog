@@ -4,31 +4,7 @@ import { Container } from "theme-ui"
 
 import { useSiteMetadata } from "../hooks/UseSiteMetadata"
 import DarkToggleButton from "./DarkToggleButton"
-
-const VerticalGradient: React.FC = () => {
-  return (
-    <svg width="100%" height="20px">
-      <defs>
-        <linearGradient id="gradient" x1="0" y1="0" x2="0" y2="100%">
-          <stop offset="0" stopColor="white" stopOpacity="1" />
-          <stop offset="1" stopColor="white" stopOpacity="0" />
-        </linearGradient>
-        <mask id="gradient-mask">
-          <rect width="100%" height="100%" fill="url(#gradient)" />
-        </mask>
-      </defs>
-      <rect
-        width="100%"
-        height="100%"
-        mask="url(#gradient-mask)"
-        sx={{
-          fill: "background",
-          transition: "fill .3s ease",
-        }}
-      />
-    </svg>
-  )
-}
+import Scrim from "./Scrim"
 
 const Header: React.FC = ({ ...rest }) => {
   const metadata = useSiteMetadata()
@@ -62,7 +38,13 @@ const Header: React.FC = ({ ...rest }) => {
           <DarkToggleButton />
         </Container>
       </div>
-      <VerticalGradient />
+      <div sx={{ position: "relative", marginBottom: 5 }}>
+        <Scrim
+          height="88px"
+          pointerEvents="none"
+          sx={{ position: "absolute" }}
+        />
+      </div>
     </div>
   )
 }
