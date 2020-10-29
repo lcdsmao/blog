@@ -4,6 +4,8 @@ import Highlight, { Language } from "prism-react-renderer"
 import { Badge } from "theme-ui"
 import "prismjs/components/prism-kotlin"
 
+import CopyButton from "./CopyButton"
+
 const aliases: Record<string, Language | undefined> = {
   js: "javascript",
   sh: "bash",
@@ -83,13 +85,18 @@ const CodeBlock: React.FC<Props> = ({
     return isStartEndHighlighted(index) || isInlineHighlighted(line)
   }
 
+  // @ts-ignore
+  const code = children.trim()
+
   return (
-    <Highlight Prism={Prism} code={children.trim()} language={lang as Language}>
+    // @ts-ignore
+    <Highlight Prism={Prism} code={code} language={lang as Language}>
       {({ className, style, tokens, getLineProps, getTokenProps }) => {
         const tokensWithoutHighlightComments = findStartAndEndHighlights(tokens)
         return (
           <div
             sx={{
+              position: "relative",
               bg: "muted",
             }}
           >
@@ -107,6 +114,16 @@ const CodeBlock: React.FC<Props> = ({
             >
               {lang}
             </Badge>
+            <CopyButton
+              content={code}
+              duration={1000}
+              sx={{
+                position: "absolute",
+                top: 0,
+                right: 0,
+                m: 1,
+              }}
+            />
             <pre
               className={`${outerClassName} ${className}`}
               style={style}
