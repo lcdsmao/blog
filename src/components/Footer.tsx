@@ -2,8 +2,7 @@ import { graphql, navigate, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
 import React, { useMemo, useState } from "react"
 import { useSiteMetadata } from "../hooks/UseSiteMetadata"
-import GitHubIcon from "./icons/GithubIcon"
-import TwitterIcon from "./icons/TwitterIcon"
+import { GitHubIcon, TwitterIcon } from "./icons"
 
 const Footer: React.FC = () => {
   const metadata = useSiteMetadata()

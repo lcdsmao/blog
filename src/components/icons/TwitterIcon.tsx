@@ -1,7 +1,7 @@
 import React from "react"
 import { Props } from "./props"
 
-const TwitterIcon: React.FC<Props> = ({ size, ...rest }) => {
+export const TwitterIcon: React.FC<Props> = ({ size, ...rest }) => {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" {...rest}>
       <title>Twitter</title>
@@ -13,5 +13,3 @@ const TwitterIcon: React.FC<Props> = ({ size, ...rest }) => {
     </svg>
   )
 }
-
-export default TwitterIcon
