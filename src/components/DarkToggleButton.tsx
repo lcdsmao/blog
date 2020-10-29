@@ -102,8 +102,8 @@ const DarkToggleButton: React.FC = () => {
         <animated.svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
-          width="1.5rem"
-          height="1.5rem"
+          width="24px"
+          height="24px"
           fill="none"
           strokeWidth="2"
           strokeLinecap="round"
