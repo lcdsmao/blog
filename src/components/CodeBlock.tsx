@@ -121,7 +121,7 @@ const CodeBlock: React.FC<Props> = ({
                 position: "absolute",
                 top: 0,
                 right: 0,
-                m: 1,
+                marginTop: "2px",
               }}
             />
             <pre

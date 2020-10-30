@@ -23,22 +23,19 @@ const CopyButton: React.FC<Props> = ({ content, duration, ...rest }) => {
           setCopied(false)
         }}
         sx={{
-          "& svg": {
+          width: 28,
+          height: 28,
+          "& .copyIcon": {
+            opacity: 0.5,
             transition: "opacity .3s ease",
           },
-          "&:enabled svg": {
-            opacity: 0.7,
-          },
-          "&:enabled:hover svg": {
-            opacity: 1,
-          },
-          "&:disabled svg": {
+          "&:disabled .copyIcon": {
             cursor: "not-allowed",
-            opacity: 0.3,
+            opacity: 0.2,
           },
         }}
       >
-        <CopyIcon size={20} />
+        <CopyIcon className={"copyIcon"} size={16} />
         <span
           sx={{
             position: "absolute",
