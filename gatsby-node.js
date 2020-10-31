@@ -79,7 +79,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const tags = result.data.allMdx.group
   tags.forEach(({ tag }) => {
     createPage({
-      path: `/tag/${tag}/`,
+      path: `/tags/${tag}/`,
       component: tagComponent,
       context: {
         tag: `${tag}`,
