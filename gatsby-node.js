@@ -70,7 +70,7 @@ exports.createPages = async ({ graphql, actions }) => {
       if (pageNumber === 0) {
         return "/"
       } else {
-        return "/page"
+        return `/page/${pageNumber}/`
       }
     },
     component: indexComponent,
@@ -79,7 +79,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const tags = result.data.allMdx.group
   tags.forEach(({ tag }) => {
     createPage({
-      path: `/tag/${tag}`,
+      path: `/tag/${tag}/`,
       component: tagComponent,
       context: {
         tag: `${tag}`,
