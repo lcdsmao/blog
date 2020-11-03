@@ -63,6 +63,9 @@ const styles = {
     mx: 3,
     px: 2,
   },
+  strong: {
+    fontWeight: 800,
+  },
   blockquote: {
     bg: "secondary",
     borderRadius: "4px",
@@ -148,8 +151,8 @@ const theme = {
   fontSizes: [12, 14, 16, 20, 24, 32, 48],
   fontWeights: {
     body: 400,
-    heading: 700,
-    display: 900,
+    heading: 600,
+    display: 700,
   },
   lineHeights: {
     body: 1.5,
