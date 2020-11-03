@@ -6,7 +6,7 @@ root: "content/blog"
 output: "."
 ---
 
-# `{{ date "YYYY-MM-DD" }}_{{ input }}/index.md`
+# `{{ date "YYYY-MM-DD" }}_{{ input | lower | kebab }}/index.md`
 
 ```markdown
 ---
