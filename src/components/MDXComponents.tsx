@@ -7,7 +7,7 @@ export const mdxComponents: MDXProviderComponents = {
     <a
       {...props}
       sx={{
-        color: "secondary",
+        color: "primaryVariant",
         textDecoration: "underline",
       }}
     />

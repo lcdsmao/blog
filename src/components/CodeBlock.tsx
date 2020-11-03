@@ -102,7 +102,7 @@ const CodeBlock: React.FC<Props> = ({
           >
             <Badge
               sx={{
-                bg: "highlight",
+                bg: "secondary",
                 color: "text",
                 verticalAlign: "top",
                 borderTopLeftRadius: 0,

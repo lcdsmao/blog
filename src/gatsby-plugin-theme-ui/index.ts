@@ -2,9 +2,10 @@ const colors = {
   text: "#3d2c29",
   background: "#fafaf9",
   primary: "#e63b19",
-  secondary: "#cc4c33",
-  highlight: "#e2bb9a",
+  primaryVariant: "#cc4c33",
+  secondary: "#e2bb9a",
   muted: "#f3eeed",
+  highlight: "#e5dbd9",
   scrollbarThumb: "#cccccc",
   prismVariable: "#2e1f7a",
   prismComment: "#996f66",
@@ -13,9 +14,10 @@ const colors = {
       text: "#F2F5F7",
       background: "#121212",
       primary: "#FF7597",
-      secondary: "#FF5083",
+      primaryVariant: "#FF5083",
+      secondary: "#8F5B78",
       muted: "#1F1F1F",
-      highlight: "#8F5B78",
+      highlight: "#535353",
       scrollbarThumb: "#696969",
       prismVariable: "#BB86FC",
       prismComment: "#999",
@@ -62,7 +64,7 @@ const styles = {
     px: 2,
   },
   blockquote: {
-    bg: "highlight",
+    bg: "secondary",
     borderRadius: "4px",
     borderLeft: "8px solid",
     borderColor: "primary",
@@ -75,17 +77,20 @@ const styles = {
     variant: "prism",
     fontFamily: "monospace",
     fontSize: 1,
-    p: 3,
+    py: 3,
     color: "text",
     bg: "muted",
     overflow: "auto",
-    code: {
-      color: "inherit",
+    ".token-line": {
+      px: 3,
+    },
+    ".token-line.highlight": {
+      bg: "highlight",
     },
   },
   code: {
     fontFamily: "monospace",
-    color: "secondary",
+    color: "primaryVariant",
     borderRadius: 2,
     bg: "muted",
     px: 1,
@@ -95,7 +100,7 @@ const styles = {
   },
   inlineCode: {
     fontFamily: "monospace",
-    color: "secondary",
+    color: "primaryVariant",
     bg: "muted",
   },
   table: {
@@ -198,7 +203,7 @@ const theme = {
       color: "primary",
     },
     ".selector,.attr-name,.string,.char,.builtin,.inserted": {
-      color: "secondary",
+      color: "primaryVariant",
     },
   },
 }
