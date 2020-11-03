@@ -32,7 +32,7 @@ const TagTemplate: React.FC<Props> = ({ data, location, pageContext }) => {
       >
         {pageContext.tag}
       </h1>
-      <ul>
+      <ul sx={{ listStyle: "none", p: 0, m: 0 }}>
         {articles.map(({ node }) => (
           <li
             key={node.fields.slug}

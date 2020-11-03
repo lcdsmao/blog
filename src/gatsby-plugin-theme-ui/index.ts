@@ -57,9 +57,9 @@ const styles = {
     },
   },
   ul: {
-    listStyle: "none",
-    m: 0,
-    p: 0,
+    listStyle: "disc",
+    mx: 3,
+    px: 2,
   },
   blockquote: {
     bg: "highlight",
@@ -87,7 +87,6 @@ const styles = {
     fontFamily: "monospace",
     color: "secondary",
     borderRadius: 2,
-    fontSize: 1,
     bg: "muted",
     px: 1,
     py: 1,
