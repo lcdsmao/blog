@@ -25,7 +25,7 @@ type Props = PageProps<
   }
 >
 
-const Index: React.FC<Props> = ({ data, location, pageContext }) => {
+const IndexPage: React.FC<Props> = ({ data, location, pageContext }) => {
   const articles = data.allMdx.edges
   return (
     <>
@@ -49,7 +49,7 @@ const Index: React.FC<Props> = ({ data, location, pageContext }) => {
   )
 }
 
-export default Index
+export default IndexPage
 
 export const query = graphql`
   query($skip: Int!, $limit: Int!) {
