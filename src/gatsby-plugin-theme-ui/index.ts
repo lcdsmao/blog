@@ -67,14 +67,15 @@ const styles = {
     fontWeight: 800,
   },
   blockquote: {
-    bg: "secondary",
-    borderRadius: "4px",
-    borderLeft: "8px solid",
+    bg: "muted",
+    borderRadius: "2px",
+    borderLeft: "4px solid",
     borderColor: "primary",
     m: 0,
     py: 1,
     paddingLeft: 3,
     paddingRight: 2,
+    fontStyle: "italic",
   },
   pre: {
     variant: "prism",
@@ -86,8 +87,12 @@ const styles = {
     overflow: "auto",
     ".token-line": {
       px: 3,
+      marginLeft: "2px",
     },
     ".token-line.highlight": {
+      marginLeft: 0,
+      borderLeft: "2px solid",
+      borderColor: "primary",
       bg: "highlight",
     },
   },
