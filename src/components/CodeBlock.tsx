@@ -131,24 +131,30 @@ const CodeBlock: React.FC<Props> = ({
                 paddingTop: 1,
               }}
             >
-              {tokensWithoutHighlightComments.map((line, i) => {
-                const lineProps = getLineProps({ line, key: i })
-                if (shouldHighlightLine(line, i)) {
-                  lineProps.className = `${lineProps.className} highlight`
-                }
-                return (
-                  <div {...lineProps}>
-                    {line.map((token, key) => (
-                      <span
-                        {...getTokenProps({ token, key })}
-                        sx={
-                          token.empty ? { display: "inline-block" } : undefined
-                        }
-                      />
-                    ))}
-                  </div>
-                )
-              })}
+              <div
+                sx={{ overflow: "initial", float: "left", minWidth: "100%" }}
+              >
+                {tokensWithoutHighlightComments.map((line, i) => {
+                  const lineProps = getLineProps({ line, key: i })
+                  if (shouldHighlightLine(line, i)) {
+                    lineProps.className = `${lineProps.className} highlight`
+                  }
+                  return (
+                    <div {...lineProps}>
+                      {line.map((token, key) => (
+                        <span
+                          {...getTokenProps({ token, key })}
+                          sx={
+                            token.empty
+                              ? { display: "inline-block" }
+                              : undefined
+                          }
+                        />
+                      ))}
+                    </div>
+                  )
+                })}
+              </div>
             </pre>
           </div>
         )
