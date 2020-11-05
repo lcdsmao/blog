@@ -4,7 +4,10 @@ date: "2020-11-03"
 tags: ["jetpack-compose", "android"]
 ---
 
-_The Jetpack Compose version of the sample codes in this post is 1.0.0-alpha06_
+In this post, I talk a little about the difference between two top-level functions used to create an `Ambient`, the `ambientOf` and the `staticAmbientOf`,
+and how to choose which one to use.
+
+The Jetpack Compose version using in this post is 1.0.0-alpha06.
 
 ## Ambient Introduction
 
@@ -12,7 +15,7 @@ The `Ambient` API in Jetpack Compose is used to pass some data implicitly to chi
 If you are familiar with other declarative frameworks, you can think of the `Ambient` API as the [Context](https://reactjs.org/docs/context.html#dynamic-context) in React, [Provider](https://pub.dev/packages/provider) in Flutter, or [EnvironmentObject](https://developer.apple.com/documentation/swiftui/environmentobject) in SwiftUI.
 
 The basic usage of `Ambient` is very simple.
-First we declare a global `Ambient`:
+First, we declare a global `Ambient`:
 
 ```kotlin
 val AmbientCounter = ambientOf<Int>()
@@ -75,7 +78,7 @@ fun Child(text: String) {
 We know that the Jetpack Compose is very clever and will only recompose a `Composable` function if its content changed.
 So for the `Child` component defined above, normally, we should only see the log when the parameter `text` changed (include the initial composition).
 
-Then, we declare an `AmbientCounter` by the `ambientOf` function and a `Parent` component which use the `AmbientCounter` to expose its internal state to children:
+Then, we declare an `AmbientCounter` by the `ambientOf` function and a `Parent` component which uses the `AmbientCounter` to expose its internal state to children:
 
 ```kotlin
 val AmbientCounter = ambientOf<Int>()
