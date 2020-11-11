@@ -13,6 +13,7 @@ const Pager: React.FC<Props> = ({ previous, next, ...rest }) => {
     <nav
       sx={{
         display: "flex",
+        justifyContent: "space-between",
       }}
       {...rest}
     >
@@ -21,8 +22,8 @@ const Pager: React.FC<Props> = ({ previous, next, ...rest }) => {
         to={previous?.fields?.slug}
         title={previous?.frontmatter?.title}
         sx={{
-          flex: "1 1 auto",
           marginRight: 2,
+          flex: 1,
         }}
       />
 
@@ -31,8 +32,8 @@ const Pager: React.FC<Props> = ({ previous, next, ...rest }) => {
         to={next?.fields?.slug}
         title={next?.frontmatter?.title}
         sx={{
-          flex: "1 1 auto",
           marginLeft: 2,
+          flex: 1,
         }}
       />
     </nav>

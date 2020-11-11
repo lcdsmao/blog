@@ -10,23 +10,24 @@ type Props = {
 const PageTurnLink: React.FC<Props> = ({ to, type, title, ...props }) => {
   return (
     <div
-      {...props}
       sx={{
         fontWeight: "bold",
         textAlign: type === "next" ? "right" : "left",
       }}
+      {...props}
     >
       {to ? (
         <Link to={to}>
-          <div
+          <p
             sx={{
               fontSize: title ? 1 : 2,
               opacity: title ? 0.7 : 1,
+              m: 0,
             }}
           >
             {type === "next" ? "NEXT" : "PREVIOUS"}
-          </div>
-          <div>{title}</div>
+          </p>
+          <p sx={{ m: 0 }}>{title}</p>
         </Link>
       ) : (
         <span />
