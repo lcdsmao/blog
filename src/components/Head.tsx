@@ -1,6 +1,7 @@
 import { PageProps } from "gatsby"
 import React from "react"
 import { Helmet } from "react-helmet"
+import { useThemeUI } from "theme-ui"
 import { useSiteMetadata } from "../hooks/UseSiteMetadata"
 
 type Props = {
@@ -25,6 +26,7 @@ const Head: React.FC<Props> = ({ location, title, description, article }) => {
     image: `${siteUrl}/lcdsmaodev.jpg`,
     url: `${siteUrl}${location.pathname}`,
   }
+  const { theme } = useThemeUI()
   return (
     <Helmet title={seo.title} titleTemplate={seo.titleTemplate} defer={false}>
       <html lang="en" />
@@ -46,6 +48,8 @@ const Head: React.FC<Props> = ({ location, title, description, article }) => {
         <meta name="twitter:description" content={seo.description} />
       )}
       {seo.image && <meta name="twitter:image" content={seo.image} />}
+      <meta name="theme-color" content={theme.colors.primary} />
+      <meta name="background-color" content={theme.colors.background} />
     </Helmet>
   )
 }
