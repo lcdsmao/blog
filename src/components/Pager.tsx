@@ -17,25 +17,29 @@ const Pager: React.FC<Props> = ({ previous, next, ...rest }) => {
       }}
       {...rest}
     >
-      <PageTurnLink
-        type={"previous"}
-        to={previous?.fields?.slug}
-        title={previous?.frontmatter?.title}
-        sx={{
-          marginRight: 2,
-          flex: 1,
-        }}
-      />
+      {previous ? (
+        <PageTurnLink
+          type={"previous"}
+          to={previous.fields.slug}
+          title={previous.frontmatter.title}
+          sx={{
+            marginRight: 2,
+            flex: 1,
+          }}
+        />
+      ) : null}
 
-      <PageTurnLink
-        type={"next"}
-        to={next?.fields?.slug}
-        title={next?.frontmatter?.title}
-        sx={{
-          marginLeft: 2,
-          flex: 1,
-        }}
-      />
+      {next ? (
+        <PageTurnLink
+          type={"next"}
+          to={next.fields.slug}
+          title={next.frontmatter.title}
+          sx={{
+            marginLeft: 2,
+            flex: 1,
+          }}
+        />
+      ) : null}
     </nav>
   )
 }
