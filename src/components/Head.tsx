@@ -10,7 +10,7 @@ type Props = {
   article?: boolean
 }
 
-const Seo: React.FC<Props> = ({ location, title, description, article }) => {
+const Head: React.FC<Props> = ({ location, title, description, article }) => {
   const {
     title: defaultTitle,
     description: defaultDescription,
@@ -26,7 +26,8 @@ const Seo: React.FC<Props> = ({ location, title, description, article }) => {
     url: `${siteUrl}${location.pathname}`,
   }
   return (
-    <Helmet title={seo.title} titleTemplate={seo.titleTemplate}>
+    <Helmet title={seo.title} titleTemplate={seo.titleTemplate} defer={false}>
+      <html lang="en" />
       <meta name="description" content={seo.description} />
       <meta name="image" content={seo.image} />
       {seo.url && <meta property="og:url" content={seo.url} />}
@@ -49,4 +50,4 @@ const Seo: React.FC<Props> = ({ location, title, description, article }) => {
   )
 }
 
-export default Seo
+export default Head

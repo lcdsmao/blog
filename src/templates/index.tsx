@@ -3,7 +3,7 @@ import React from "react"
 
 import Article from "../components/Article"
 import Pagination from "../components/Pagination"
-import Seo from "../components/Seo"
+import Head from "../components/Head"
 import { Mdx } from "../types"
 
 type Props = PageProps<
@@ -29,7 +29,7 @@ const IndexPage: React.FC<Props> = ({ data, location, pageContext }) => {
   const articles = data.allMdx.edges
   return (
     <>
-      <Seo location={location} />
+      <Head location={location} />
       {articles.map(({ node }) => (
         <Article
           key={node.fields.slug}

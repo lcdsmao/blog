@@ -1,6 +1,6 @@
 import { graphql, Link, PageProps } from "gatsby"
 import React from "react"
-import Seo from "../components/Seo"
+import Head from "../components/Head"
 import { Mdx } from "../types"
 
 type Props = PageProps<
@@ -18,7 +18,7 @@ const TagTemplate: React.FC<Props> = ({ data, location, pageContext }) => {
   const articles = data.allMdx.edges
   return (
     <>
-      <Seo
+      <Head
         location={location}
         title={`Tag ${pageContext.tag}`}
         description={`Posts with tag ${pageContext.tag}`}

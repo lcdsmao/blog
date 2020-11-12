@@ -7,12 +7,12 @@ import {
   FontFamily,
 } from "@theme-ui/style-guide"
 import { PageProps } from "gatsby"
-import Seo from "../components/Seo"
+import Head from "../components/Head"
 
 const ThemePage: React.FC<PageProps> = ({ location }) => {
   return (
     <>
-      <Seo location={location} title="Theme" />
+      <Head location={location} title="Theme" />
       <h2>Colors</h2>
       <ColorPalette omit={["modes"]} />
       <h2>Typography</h2>

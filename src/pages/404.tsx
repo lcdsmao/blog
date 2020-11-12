@@ -1,7 +1,7 @@
 import { PageProps, graphql } from "gatsby"
 import Img, { FluidObject } from "gatsby-image"
 import React from "react"
-import Seo from "../components/Seo"
+import Head from "../components/Head"
 
 type Props = PageProps<{
   file: {
@@ -14,7 +14,7 @@ type Props = PageProps<{
 const NotFound: React.FC<Props> = ({ location, data }) => {
   return (
     <>
-      <Seo location={location} title="404 Not Found" />
+      <Head location={location} title="404 Not Found" />
       <h1 sx={{ textAlign: "center" }}>404 Not Found!</h1>
       <div
         sx={{

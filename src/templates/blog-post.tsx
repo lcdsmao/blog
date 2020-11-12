@@ -3,7 +3,7 @@ import React from "react"
 
 import Article from "../components/Article"
 import Pager from "../components/Pager"
-import Seo from "../components/Seo"
+import Head from "../components/Head"
 import { Mdx } from "../types"
 
 type Props = PageProps<
@@ -22,7 +22,7 @@ const BlogPostTemplate: React.FC<Props> = ({ location, data, pageContext }) => {
   const { previous, next } = pageContext
   return (
     <>
-      <Seo
+      <Head
         location={location}
         title={data.mdx.frontmatter.title}
         description={data.mdx.excerpt}
