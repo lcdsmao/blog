@@ -3,7 +3,7 @@ import React from "react"
 
 type Props = {
   to: string
-  title: string
+  title?: string
   type: "next" | "previous"
 }
 
@@ -26,7 +26,7 @@ const PageTurnLink: React.FC<Props> = ({ to, type, title, ...props }) => {
         >
           {type === "next" ? "NEXT" : "PREVIOUS"}
         </p>
-        <p sx={{ m: 0 }}>{title}</p>
+        {title ? <p sx={{ m: 0 }}>{title}</p> : null}
       </Link>
     </div>
   )

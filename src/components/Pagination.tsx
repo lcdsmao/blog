@@ -10,6 +10,7 @@ type Props = {
 }
 
 const Pagination: React.FC<Props> = ({ page, total, previous, next }) => {
+  if (!previous || !next) return null
   return (
     <nav
       sx={{
@@ -18,13 +19,15 @@ const Pagination: React.FC<Props> = ({ page, total, previous, next }) => {
         marginTop: [4, 5],
       }}
     >
-      <PageTurnLink
-        sx={{
-          flex: "1 0 0",
-        }}
-        type="previous"
-        to={previous}
-      />
+      {previous && (
+        <PageTurnLink
+          sx={{
+            flex: "1 0 0",
+          }}
+          type="previous"
+          to={previous}
+        />
+      )}
 
       <div
         sx={{
@@ -35,13 +38,15 @@ const Pagination: React.FC<Props> = ({ page, total, previous, next }) => {
         Page {page} of {total}
       </div>
 
-      <PageTurnLink
-        sx={{
-          flex: "1 0 0",
-        }}
-        type="next"
-        to={next}
-      />
+      {next && (
+        <PageTurnLink
+          sx={{
+            flex: "1 0 0",
+          }}
+          type="next"
+          to={next}
+        />
+      )}
     </nav>
   )
 }

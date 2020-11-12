@@ -17,7 +17,7 @@ const Pager: React.FC<Props> = ({ previous, next, ...rest }) => {
       }}
       {...rest}
     >
-      {previous ? (
+      {previous && (
         <PageTurnLink
           type={"previous"}
           to={previous.fields.slug}
@@ -27,9 +27,9 @@ const Pager: React.FC<Props> = ({ previous, next, ...rest }) => {
             flex: 1,
           }}
         />
-      ) : null}
+      )}
 
-      {next ? (
+      {next && (
         <PageTurnLink
           type={"next"}
           to={next.fields.slug}
@@ -39,7 +39,7 @@ const Pager: React.FC<Props> = ({ previous, next, ...rest }) => {
             flex: 1,
           }}
         />
-      ) : null}
+      )}
     </nav>
   )
 }
