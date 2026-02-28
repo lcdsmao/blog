@@ -1,0 +1,12 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro"
+import HelloWasmClient from "../components/HelloWasmClient.svelte"
+---
+<BaseLayout title="Hello | lcdsmao">
+  <main class="page">
+    <section class="card">
+      <HelloWasmClient client:load />
+      <a class="ghost-link" href="/">Back</a>
+    </section>
+  </main>
+</BaseLayout>

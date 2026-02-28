@@ -1,0 +1,27 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro"
+import ParallaxBackground from "../components/ParallaxBackground.svelte"
+import DarkToggle from "../components/DarkToggle.svelte"
+import GitHubLink from "../components/GitHubLink.svelte"
+---
+<BaseLayout title="lcdsmao">
+  <ParallaxBackground client:load />
+  <main class="page">
+    <section class="card">
+      <img
+        class="avatar"
+        src="https://github.com/lcdsmao.png"
+        alt="lcdsmao avatar"
+        loading="lazy"
+      />
+      <div class="links">
+        <GitHubLink client:load />
+        <DarkToggle client:load />
+      </div>
+      <div class="hello-link" data-hello-link>
+        <a class="ghost-link" href="/hello">Unlock /hello</a>
+      </div>
+      <div class="mute">Click the background seven times.</div>
+    </section>
+  </main>
+</BaseLayout>

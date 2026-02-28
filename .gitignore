@@ -58,6 +58,9 @@ typings/
 .cache/
 public
 
+# wasm build output
+public/wasm/hello/
+
 # Mac files
 .DS_Store
 
