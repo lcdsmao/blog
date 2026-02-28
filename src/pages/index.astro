@@ -8,16 +8,17 @@ import GitHubLink from "../components/GitHubLink.svelte"
   <ParallaxBackground client:load />
   <main class="page">
     <section class="card">
-      <img
-        class="avatar"
-        src="https://github.com/lcdsmao.png"
-        alt="lcdsmao avatar"
-        loading="lazy"
-      />
+      <a href="/hello" aria-label="Open hello page">
+        <img
+          class="avatar"
+          src="https://github.com/lcdsmao.png"
+          alt="lcdsmao avatar"
+          loading="lazy"
+        />
+      </a>
       <div class="links">
         <GitHubLink client:load />
       </div>
-      <a class="ghost-link" href="/hello">Hello</a>
     </section>
     <div class="top-right">
       <DarkToggle client:load />
