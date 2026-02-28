@@ -11,8 +11,8 @@
 
   const update = (x: number, y: number) => {
     if (!container) return
-    container.style.setProperty("--px", x.toFixed(2))
-    container.style.setProperty("--py", y.toFixed(2))
+    container.style.setProperty("--mx", x.toFixed(2))
+    container.style.setProperty("--my", y.toFixed(2))
   }
 
   onMount(() => {
@@ -27,13 +27,11 @@
       targetY = (event.clientY / innerHeight - 0.5) * 2
     }
 
-    const loop = (time: number) => {
+    const loop = () => {
       if (!enabled) return
-      const driftX = Math.sin(time / 4500) * 0.2
-      const driftY = Math.cos(time / 5200) * 0.2
-      currentX += (targetX - currentX) * 0.08
-      currentY += (targetY - currentY) * 0.08
-      update(currentX + driftX, currentY + driftY)
+      currentX += (targetX - currentX) * 0.2
+      currentY += (targetY - currentY) * 0.2
+      update(currentX, currentY)
       rafId = requestAnimationFrame(loop)
     }
 
@@ -47,7 +45,7 @@
 </script>
 
 <div bind:this={container} class="parallax">
-  <div class="parallax-layer layer-1" style="transform: translate3d(calc(var(--px, 0) * 20px), calc(var(--py, 0) * 14px), 0);"></div>
-  <div class="parallax-layer layer-2" style="transform: translate3d(calc(var(--px, 0) * 12px), calc(var(--py, 0) * 8px), 0);"></div>
-  <div class="parallax-layer layer-3" style="transform: translate3d(calc(var(--px, 0) * 6px), calc(var(--py, 0) * 4px), 0);"></div>
+  <div class="parallax-layer layer-1"></div>
+  <div class="parallax-layer layer-2"></div>
+  <div class="parallax-layer layer-3"></div>
 </div>

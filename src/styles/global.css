@@ -1,9 +1,9 @@
 :root {
   color-scheme: light dark;
-  --bg: #f7efe7;
-  --bg-deep: #3a1f21;
-  --bg-glow: #ff8c5a;
-  --bg-ember: #b4372b;
+  --bg: #f8f1e7;
+  --bg-deep: #2f1b19;
+  --bg-glow: #ffb07a;
+  --bg-ember: #d7635a;
   --text: #1f1415;
   --text-muted: #4a3739;
   --panel: rgba(255, 255, 255, 0.6);
@@ -11,10 +11,10 @@
 }
 
 [data-theme="dark"] {
-  --bg: #0b0c10;
-  --bg-deep: #150c11;
-  --bg-glow: #ff6a3c;
-  --bg-ember: #5a1b1f;
+  --bg: #0d0c0d;
+  --bg-deep: #160e13;
+  --bg-glow: #ff7a53;
+  --bg-ember: #3d1719;
   --text: #f6efea;
   --text-muted: #ccb7b1;
   --panel: rgba(16, 16, 20, 0.65);
@@ -139,6 +139,25 @@ body {
   inset: -20vh -20vw;
   overflow: hidden;
   z-index: 0;
+  --mx: 0;
+  --my: 0;
+  background:
+    radial-gradient(
+      120% 90% at 18% 18%,
+      rgba(255, 214, 182, calc(0.85 + var(--mx) * 0.28)) 0%,
+      rgba(255, 214, 182, 0) calc(55% + var(--my) * 8%)
+    ),
+    radial-gradient(
+      140% 110% at 85% 22%,
+      rgba(255, 160, 128, calc(0.74 - var(--my) * 0.24)) 0%,
+      rgba(255, 160, 128, 0) calc(60% + var(--mx) * 8%)
+    ),
+    linear-gradient(
+      160deg,
+      #f8f1e7 0%,
+      #f2e2d3 calc(45% + var(--mx) * 7%),
+      #d9b7a3 100%
+    );
 }
 
 .parallax-layer {
@@ -146,33 +165,87 @@ body {
   inset: 0;
   transform: translate3d(0, 0, 0);
   transition: transform 200ms ease-out;
-}
-
-.layer-1 {
-  background:
-    radial-gradient(circle at 20% 20%, var(--bg-glow), transparent 45%),
-    radial-gradient(circle at 80% 30%, #f4a261, transparent 55%),
-    linear-gradient(120deg, var(--bg) 10%, #f2b78f 60%, var(--bg-deep) 120%);
-}
-
-.layer-2 {
   background:
     radial-gradient(
-      circle at 30% 70%,
-      rgba(255, 140, 90, 0.6),
-      transparent 50%
+      120% 110% at 75% 65%,
+      rgba(47, 27, 25, calc(0.2 + var(--my) * 0.18)) 0%,
+      rgba(47, 27, 25, 0) 60%
     ),
-    radial-gradient(circle at 70% 60%, rgba(186, 61, 49, 0.55), transparent 60%);
-  mix-blend-mode: multiply;
+    radial-gradient(
+      110% 90% at 20% 75%,
+      rgba(255, 136, 112, calc(0.24 - var(--mx) * 0.18)) 0%,
+      rgba(255, 136, 112, 0) 62%
+    );
+  mix-blend-mode: soft-light;
 }
 
-.layer-3 {
-  background: linear-gradient(
-    200deg,
-    rgba(20, 8, 12, 0.8),
-    rgba(20, 8, 12, 0) 55%
-  );
-  opacity: 0.6;
+.parallax::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMjAnIGhlaWdodD0nMTIwJyB2aWV3Qm94PScwIDAgMTIwIDEyMCc+PGZpbHRlciBpZD0nbic+PGZlVHVyYnVsZW5jZSB0eXBlPSdmcmFjdGFsTm9pc2UnIGJhc2VGcmVxdWVuY3k9JzAuOCcgbnVtT2N0YXZlcz0nMicgc3RpdGNoVGlsZXM9J3N0aXRjaCcvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPScxMjAnIGhlaWdodD0nMTIwJyBmaWx0ZXI9J3VybCglMjNuKScgb3BhY2l0eT0nMC4xOCcvPjwvc3ZnPg==");
+  opacity: 0.4;
+  mix-blend-mode: soft-light;
+  pointer-events: none;
+}
+
+.parallax::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      120% 100% at 35% 30%,
+      rgba(255, 216, 180, calc(0.26 + var(--mx) * 0.32)) 0%,
+      rgba(255, 216, 180, 0) calc(55% + var(--my) * 8%)
+    ),
+    radial-gradient(
+      130% 110% at 70% 55%,
+      rgba(255, 168, 140, calc(0.22 - var(--my) * 0.26)) 0%,
+      rgba(255, 168, 140, 0) calc(60% + var(--mx) * 8%)
+    );
+  opacity: 0.75;
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+[data-theme="dark"] .parallax {
+  background:
+    radial-gradient(
+      120% 90% at 18% 18%,
+      rgba(255, 130, 104, calc(0.26 + var(--mx) * 0.11)) 0%,
+      rgba(255, 130, 104, 0) calc(55% + var(--my) * 4%)
+    ),
+    radial-gradient(
+      140% 110% at 80% 20%,
+      rgba(122, 58, 62, calc(0.48 - var(--my) * 0.09)) 0%,
+      rgba(122, 58, 62, 0) calc(60% + var(--mx) * 4%)
+    ),
+    linear-gradient(
+      160deg,
+      #0d0c0d 0%,
+      #141015 calc(45% + var(--mx) * 3%),
+      #2b1a1c 100%
+    );
+}
+
+[data-theme="dark"] .parallax-layer {
+  background:
+    radial-gradient(
+      120% 110% at 75% 70%,
+      rgba(255, 122, 83, calc(0.14 + var(--mx) * 0.09)) 0%,
+      rgba(255, 122, 83, 0) 60%
+    ),
+    radial-gradient(
+      110% 90% at 20% 75%,
+      rgba(0, 0, 0, calc(0.33 - var(--my) * 0.09)) 0%,
+      rgba(0, 0, 0, 0) 60%
+    );
+  mix-blend-mode: screen;
+}
+
+[data-theme="dark"] .parallax::before {
+  opacity: 0;
 }
 
 .mute {
