@@ -33,6 +33,7 @@ body {
   color: var(--text);
   background: var(--bg);
   overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 body {
