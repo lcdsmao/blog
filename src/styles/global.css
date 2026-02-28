@@ -32,6 +32,7 @@ body {
   font-family: "Outfit", system-ui, sans-serif;
   color: var(--text);
   background: var(--bg);
+  overflow-x: hidden;
 }
 
 body {
@@ -291,6 +292,15 @@ body {
 }
 
 @media (max-width: 720px) {
+  .top-right {
+    top: 16px;
+    right: 16px;
+  }
+
+  .parallax {
+    inset: 0;
+  }
+
   .page {
     height: auto;
   }
