@@ -56,10 +56,8 @@ typings/
 
 # gatsby files
 .cache/
-public
 
 # wasm build output
-public/wasm/hello/
 wasm/hello/target/
 wasm/hello/pkg/
 src/wasm/hello/pkg/
