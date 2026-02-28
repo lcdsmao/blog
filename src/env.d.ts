@@ -1,5 +1,5 @@
 /// <reference path="../.astro/types.d.ts" />
-declare module "/wasm/hello/hello.js" {
-  export default function init(): Promise<void>
-  export function hello(): string
+declare module "*.wasm" {
+  const wasmUrl: string
+  export default wasmUrl
 }

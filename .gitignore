@@ -60,6 +60,10 @@ public
 
 # wasm build output
 public/wasm/hello/
+wasm/hello/target/
+wasm/hello/pkg/
+src/wasm/hello/pkg/
+wasm/hello/Cargo.lock
 
 # astro
 .astro/

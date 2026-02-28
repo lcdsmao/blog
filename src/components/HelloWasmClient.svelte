@@ -6,11 +6,16 @@
 
   onMount(async () => {
     try {
-      const mod = await import("/wasm/hello/hello.js")
-      if (mod?.default) {
-        await mod.default()
+      const moduleUrl = new URL("/wasm/hello/hello.js", window.location.origin)
+      const wasmUrl = new URL(
+        "/wasm/hello/hello_bg.wasm",
+        window.location.origin
+      )
+      const module = await import(/* @vite-ignore */ moduleUrl.toString())
+      if (typeof module?.default === "function") {
+        await module.default(wasmUrl)
       }
-      message = typeof mod.hello === "function" ? mod.hello() : "Hello World"
+      message = typeof module?.hello === "function" ? module.hello() : "Hello World"
       status = "Ready"
     } catch (err) {
       status = "Failed to load WASM"
