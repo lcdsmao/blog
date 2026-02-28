@@ -16,12 +16,11 @@ import GitHubLink from "../components/GitHubLink.svelte"
       />
       <div class="links">
         <GitHubLink client:load />
-        <DarkToggle client:load />
       </div>
-      <div class="hello-link" data-hello-link>
-        <a class="ghost-link" href="/hello">Unlock /hello</a>
-      </div>
-      <div class="mute">Click the background seven times.</div>
+      <a class="ghost-link" href="/hello">Hello</a>
     </section>
+    <div class="top-right">
+      <DarkToggle client:load />
+    </div>
   </main>
 </BaseLayout>

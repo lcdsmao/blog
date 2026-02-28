@@ -1,4 +1,4 @@
-<a class="ghost-link" href="https://github.com/lcdsmao" rel="noreferrer">
+<a class="ghost-link github-link" href="https://github.com/lcdsmao" rel="noreferrer">
   <span aria-hidden="true">GitHub</span>
   <svg
     xmlns="http://www.w3.org/2000/svg"

@@ -71,6 +71,7 @@ wasm/hello/Cargo.lock
 # playwright
 test-results/
 playwright-report/
+.playwright-cli/
 
 # Mac files
 .DS_Store
