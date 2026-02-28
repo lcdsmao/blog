@@ -254,6 +254,42 @@ body {
   color: var(--text-muted);
 }
 
+.hello {
+  display: grid;
+  gap: 12px;
+  justify-items: center;
+  text-align: center;
+}
+
+.hello-message {
+  font-size: clamp(1.4rem, 3vw, 2.1rem);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--text);
+}
+
+.hello-message span {
+  color: var(--text);
+  margin-left: 4px;
+  opacity: 0.2;
+}
+
+.hello-message span.caret {
+  opacity: 0.85;
+  animation: caret-blink 700ms step-end infinite;
+}
+
+@keyframes caret-blink {
+  0%,
+  49% {
+    opacity: 0.85;
+  }
+  50%,
+  100% {
+    opacity: 0.1;
+  }
+}
+
 @media (max-width: 720px) {
   .page {
     height: auto;
