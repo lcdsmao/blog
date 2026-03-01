@@ -1,5 +1,7 @@
 ---
 import "../styles/global.css"
+import InteractiveBackground from "../components/InteractiveBackground.svelte"
+import DarkToggle from "../components/DarkToggle.svelte"
 
 const { title = "lcdsmao" } = Astro.props
 ---
@@ -27,6 +29,10 @@ const { title = "lcdsmao" } = Astro.props
     </script>
   </head>
   <body>
+    <InteractiveBackground client:load />
+    <div class="top-right">
+      <DarkToggle client:load />
+    </div>
     <slot />
   </body>
 </html>
