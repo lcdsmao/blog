@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount } from "svelte"
-  import { spring } from "svelte/motion"
+  import { Spring } from "svelte/motion"
 
   type Mode = "light" | "dark"
   let mode: Mode = "light"
@@ -8,9 +8,9 @@
 
   const springConfig = { stiffness: 0.12, damping: 0.6 }
 
-  const svg = spring({ rotate: 180, opacity: 1 }, springConfig)
-  const mask = spring({ cx: 100, cy: 0, r: 3 }, springConfig)
-  const center = spring({ r: 5 }, springConfig)
+  const svg = new Spring({ rotate: 180, opacity: 1 }, springConfig)
+  const mask = new Spring({ cx: 100, cy: 0, r: 3 }, springConfig)
+  const center = new Spring({ r: 5 }, springConfig)
   let rayStates = Array.from({ length: 8 }).map(() => ({
     scale: 1,
     opacity: 1,
@@ -72,16 +72,16 @@
       stroke-width="2"
       stroke-linecap="round"
       stroke-linejoin="round"
-      style={`transform: rotate(${$svg.rotate}deg); opacity: ${$svg.opacity};`}
+      style={`transform: rotate(${svg.current.rotate}deg); opacity: ${svg.current.opacity};`}
     >
       <defs>
         <mask id="moon-mask">
           <rect x="0" y="0" width="100%" height="100%" fill="white" />
           <circle
             fill="black"
-            cx={$mask.cx + "%"}
-            cy={$mask.cy}
-            r={$mask.r}
+            cx={mask.current.cx + "%"}
+            cy={mask.current.cy}
+            r={mask.current.r}
           />
         </mask>
       </defs>
@@ -90,7 +90,7 @@
         cy="12"
         fill="currentColor"
         mask="url(#moon-mask)"
-        r={$center.r}
+        r={center.current.r}
       />
       {#each rayStates as ray, i}
         {#key i}
