@@ -37,12 +37,18 @@ body {
 }
 
 body {
-  display: grid;
-  place-items: center;
   overflow: hidden;
   transition:
     background-color 300ms ease,
     color 300ms ease;
+  min-height: 100vh;
+  position: relative;
+}
+
+.site {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
 }
 
 .page {

@@ -34,6 +34,8 @@ const { title = "lcdsmao" } = Astro.props
     <div class="top-right">
       <DarkToggle client:load />
     </div>
-    <slot />
+    <div class="site">
+      <slot />
+    </div>
   </body>
 </html>
