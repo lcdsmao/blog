@@ -1,11 +1,11 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro"
-import ParallaxBackground from "../components/ParallaxBackground.svelte"
+import InteractiveBackground from "../components/InteractiveBackground.svelte"
 import DarkToggle from "../components/DarkToggle.svelte"
 import GitHubLink from "../components/GitHubLink.svelte"
 ---
 <BaseLayout title="lcdsmao">
-  <ParallaxBackground client:load />
+  <InteractiveBackground client:load />
   <main class="page">
     <section class="card">
       <a href="/hello" aria-label="Open hello page">
