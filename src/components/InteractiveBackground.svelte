@@ -23,8 +23,12 @@
 
     const handleMove = (event: MouseEvent) => {
       const { innerWidth, innerHeight } = window
-      targetX = (event.clientX / innerWidth - 0.5) * 2
-      targetY = (event.clientY / innerHeight - 0.5) * 2
+      const x = (event.clientX / innerWidth - 0.5) * 2
+      const y = (event.clientY / innerHeight - 0.5) * 2
+      const distance = Math.min(1, Math.hypot(x, y))
+      const damp = 1 - distance * 0.6
+      targetX = x * damp
+      targetY = y * damp
     }
 
     const loop = () => {
